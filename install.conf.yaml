@@ -6,3 +6,9 @@
     ~/.bash_logout: bash_logout
 
 
+- clean: ['~']
+
+- link:
+    ~/.zshrc: zshrc
+
+
