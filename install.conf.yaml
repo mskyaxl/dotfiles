@@ -4,11 +4,7 @@
     ~/.profile: profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
+    ~/.zshrc: zsh/zshrc
 
-
-- clean: ['~']
-
-- link:
-    ~/.zshrc: zshrc
 
 
