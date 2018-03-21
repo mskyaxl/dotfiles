@@ -5,6 +5,7 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.zshrc: zsh/zshrc
+    ~/.zprofile: zsh/zprofile
     ~/.oh-my-zsh : zsh/.oh-my-zsh
 
 
