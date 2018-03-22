@@ -8,8 +8,8 @@
 
 - link:
     ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.bash_logout: bash_logout
+    ~/.bashrc: bash/bashrc
+    ~/.bash_logout: bash/bash_logout
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
 
