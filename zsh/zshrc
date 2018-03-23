@@ -61,6 +61,7 @@ ZSH_CUSTOM=$DOTFILES/zsh/plugins
 plugins=(
   git
   tmux
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
