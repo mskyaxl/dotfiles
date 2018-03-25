@@ -47,9 +47,13 @@ filetype plugin indent on    " required
 "
 "
 
-"autosatart NERDTREE
-autocmd vimenter * NERDTree
 
+" Start NERDTree
+autocmd VimEnter * NERDTree
+" Go to previous (last accessed) window.
+autocmd VimEnter * wincmd p
+"close vim once there is only nerdtree left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
 
 
 "vim private config
