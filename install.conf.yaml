@@ -13,10 +13,11 @@
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
     ~/.vimrc: vim/vimrc
-    ~/.vim/bundle:
-      path: vim/bundle
+    ~/.vim/bundle/Vundle.vim:
+      path: vim/bundle/Vundle.vim
 
 
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - [vim +PluginInstall +qall, Installing vim plugins]
