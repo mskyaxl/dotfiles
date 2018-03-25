@@ -12,6 +12,9 @@
     ~/.bash_logout: bash/bash_logout
     ~/.zshrc: zsh/zshrc
     ~/.zprofile: zsh/zprofile
+    ~/.vimrc: vim/vimrc
+    ~/.vim/bundle:
+      path: vim/bundle
 
 
 
