@@ -10,6 +10,7 @@
     ~/.profile: bash/profile
     ~/.bashrc: bash/bashrc
     ~/.bash_logout: bash/bash_logout
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.zshrc: zsh/zshrc
     ~/.vimrc: vim/vimrc
     ~/.vim/bundle/Vundle.vim:
