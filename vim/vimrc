@@ -55,6 +55,8 @@ autocmd VimEnter * wincmd p
 "close vim once there is only nerdtree left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
 
+set background=dark
+
 
 "vim private config
 set relativenumber
