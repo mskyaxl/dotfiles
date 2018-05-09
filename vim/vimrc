@@ -56,7 +56,8 @@ autocmd VimEnter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
 
 set background=dark
-
+"add mouse support
+set mouse=a
 
 "vim private config
 set relativenumber
@@ -67,3 +68,8 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+"copy (write) highlighted text to .vimbuffer
+vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
+"paste from buffer
+map <C-v> :r ~/.vimbuffer<CR>
