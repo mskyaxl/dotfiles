@@ -11,6 +11,7 @@
     ~/.bashrc: bash/bashrc
     ~/.bash_logout: bash/bash_logout
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmux/plugins/tpm: tmux/plugins/tpm
     ~/.zshrc: zsh/zshrc
     ~/.vimrc: vim/vimrc
     ~/.vim/bundle/Vundle.vim:
@@ -21,3 +22,4 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [vim +PluginInstall +qall, Installing vim plugins]
+  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
