@@ -23,3 +23,4 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [vim +PluginInstall +qall, Installing vim plugins]
   - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
+  - [sudo install -p aptget/dotbot-apt-get/aptget.py -c aptget/packages.conf.yaml, install packages]
