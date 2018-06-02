@@ -16,3 +16,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "aptget/dotbot_plugin_aptget"]
+	path = aptget/dotbot_plugin_aptget
+	url = https://github.com/dein0s/dotbot_plugin_aptget.git

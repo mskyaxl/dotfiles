@@ -1,2 +1,1 @@
-- apt-get:
-  - mc
+- aptget: [vim, zsh, tmux, xsel, mc, git]
