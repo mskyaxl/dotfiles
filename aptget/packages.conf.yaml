@@ -1,6 +1,2 @@
 - apt-get:
-        - vim
-        - zsh
-        - tmux
-        - mc
-        - xsel
+  - mc
