@@ -20,11 +20,12 @@
 
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [vim +PluginInstall +qall, Installing vim plugins]
-  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
   - 
     command: sudo aptget/install_packages.sh 
     stdin: true
     stdout: true
     description: Installing packages
+  - [zsh/make_zsh_default.sh, Making zsh default]
+  - [vim +PluginInstall +qall, Installing vim plugins]
+  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
+  - [git submodule update --init --recursive, Installing submodules]
