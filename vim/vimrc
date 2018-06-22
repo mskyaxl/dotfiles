@@ -31,6 +31,7 @@ Plugin 'dracula/vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,19 +58,28 @@ autocmd VimEnter * wincmd p
 "close vim once there is only nerdtree left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
 
-set background=dark
+" open NERDTree TAB at startup
+let g:nerdtree_tabs_open_on_console_startup=1
+
+
+
 "add mouse support
 set mouse=a
+
+"set dracula syntax
+syntax on
+color dracula
+set background=dark
 
 "vim private config
 set relativenumber
 set number
 
 "disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+"noremap <Up> <Nop>
+"noremap <Down> <Nop>
+"noremap <Left> <Nop>
+"noremap <Right> <Nop>
 
 "copy (write) highlighted text to .vimbuffer
 vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
