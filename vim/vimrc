@@ -27,11 +27,27 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 Plugin 'ascenator/L9', {'name': 'newL9'}
 
+"[1]themes
+""" Theme / Pretty stuff
+"""
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'endel/vim-github-colorscheme'
+" Awesome looking meta at bottom
+" " Fugitive will help with git related stuff, and show branch on statusline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+
 Plugin 'dracula/vim'
+"[2] IDE
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
+
+"[3]
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,10 +82,19 @@ let g:nerdtree_tabs_open_on_console_startup=1
 "add mouse support
 set mouse=a
 
-"set dracula syntax
-syntax on
-color dracula
+
+
+
+syntax enable
+let g:solarized_termcolors=256
 set background=dark
+"colorscheme dracula
+colorscheme solarized
+
+
+
+
+
 
 "vim private config
 set relativenumber
