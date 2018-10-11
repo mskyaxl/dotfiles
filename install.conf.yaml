@@ -21,7 +21,7 @@
 
 - shell:
   - 
-    command: sudo aptget/install_packages.sh 
+    command: aptget/install_packages.sh 
     stdin: true
     stdout: true
     description: Installing packages

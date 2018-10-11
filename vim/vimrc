@@ -93,7 +93,12 @@ syntax enable
 let g:solarized_termcolors=256
 set background=dark
 "colorscheme dracula
-colorscheme solarized
+
+let $SOLARIZED_DIR=expand("~/.vim/bundle/vim-colors-solarized")
+if isdirectory($SOLARIZED_DIR)
+    colorscheme solarized
+endif
+    
 
 
 
