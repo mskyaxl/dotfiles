@@ -20,6 +20,7 @@
 
 
 - shell:
+  - [git submodule update --init --recursive, Installing submodules]
   - 
     command: aptget/install_packages.sh 
     stdin: true
@@ -32,4 +33,3 @@
     description: Making zsh default
   - [vim +PluginInstall +qall, Installing vim plugins]
   - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
-  - [git submodule update --init --recursive, Installing submodules]
