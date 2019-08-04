@@ -1,1 +1,1 @@
-- aptget: [vim, zsh, tmux, xsel, mc]
+- aptget: [vim-noxf, zsh, tmux, xsel, mc, build-essential, ruby-dev]
