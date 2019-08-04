@@ -1,3 +1,4 @@
+set clipboard=unnamed
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -6,14 +7,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+"
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -41,8 +40,14 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
 
 "[3]
+"FocusGained and FocusLost autocommand events are not working in terminal vim.
+"This plugin restores them when using vim inside Tmux.
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+
+"[4]git plugin
+Plugin 'tpope/vim-fugitive'
 
 "[markdown]
 Plugin 'godlygeek/tabular'
@@ -108,12 +113,12 @@ set relativenumber
 set number
 
 "disable arrow keys
-"noremap <Up> <Nop>
-"noremap <Down> <Nop>
-"noremap <Left> <Nop>
-"noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 "copy (write) highlighted text to .vimbuffer
-vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
+""emap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
 "paste from buffer
-map <C-v> :r ~/.vimbuffer<CR>
+"map <C-v> :r ~/.vimbuffer<CR>
