@@ -102,12 +102,6 @@ if isdirectory($SOLARIZED_DIR)
     colorscheme solarized
 endif
     
-
-
-
-
-
-
 "vim private config
 set relativenumber
 set number
@@ -118,6 +112,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+"inoremap <C-v> <ESC>"+pa
+"vnoremap <C-c> "+y
+"vnoremap <C-d> "+d
 "copy (write) highlighted text to .vimbuffer
 ""emap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
 "paste from buffer
