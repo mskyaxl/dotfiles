@@ -56,6 +56,8 @@ Plugin 'plasticboy/vim-markdown'
 "[command-t]
 "powerfull plugin to jump to files
 Plugin 'wincent/command-t'
+"Plugin 'christoomey/vim-system-copy'
+"Plugin 'kana/vim-fakeclip'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -112,10 +114,8 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-"inoremap <C-v> <ESC>"+pa
-"vnoremap <C-c> "+y
-"vnoremap <C-d> "+d
-"copy (write) highlighted text to .vimbuffer
-""emap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe<CR><CR>
-"paste from buffer
-"map <C-v> :r ~/.vimbuffer<CR>
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+
