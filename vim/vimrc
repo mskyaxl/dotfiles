@@ -1,4 +1,4 @@
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -30,15 +30,15 @@ Plugin 'endel/vim-github-colorscheme'
 " " Fugitive will help with git related stuff, and show branch on statusline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-
 Plugin 'dracula/vim'
 "[2] IDE
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
-
+"C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'derekwyatt/vim-fswitch'
 "[3]
 "FocusGained and FocusLost autocommand events are not working in terminal vim.
 "This plugin restores them when using vim inside Tmux.
@@ -50,14 +50,19 @@ Plugin 'christoomey/vim-tmux-runner'
 Plugin 'tpope/vim-fugitive'
 
 "[markdown]
+"helps aligning MD tables  
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
-"[command-t]
-"powerfull plugin to jump to files
+"[fuzzy file search]
+"powerfull plugin to jump to files, fast but depending on ruby
 Plugin 'wincent/command-t'
-"Plugin 'christoomey/vim-system-copy'
-"Plugin 'kana/vim-fakeclip'
+"another plugin to jump to files slower but no dependencies 
+Plugin 'kien/ctrlp.vim'
+"[session management]
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+Plugin 'gikmx/ctrlp-obsession'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -86,7 +91,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " open NERDTree TAB at startup
 let g:nerdtree_tabs_open_on_console_startup=1
 
+map <C-n> :NERDTreeToggle<CR>
 
+"cpp syntax
+let g:cpp_member_variable_highlight = 1
 
 "add mouse support
 set mouse=a
