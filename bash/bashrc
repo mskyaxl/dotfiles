@@ -116,5 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export DISPLAY=localhost:0.0
+if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft ]]; then
+  export DISPLAY=localhost:0.0
+fi
 
