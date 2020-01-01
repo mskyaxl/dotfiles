@@ -100,9 +100,10 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft ]]; then
- export DISPLAY=localhost:0.0
+if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
+ export DISPLAY=$WSL_HOST_IP:0
 fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
