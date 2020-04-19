@@ -97,9 +97,18 @@ map <C-n> :NERDTreeToggle<CR>
 let g:cpp_member_variable_highlight = 1
 
 "add mouse support
-set mouse=a
 
 
+
+"if has("mouse_sgr")
+"    set ttymouse=sgr
+"else
+"    set ttymouse=xterm2
+"end
+"let &t_ti.="\e[?7727h"
+"let &t_te.="\e[?7727l"
+"noremap <Esc>O[ <Esc>
+"noremap! <Esc>O[ <Esc>
 
 set t_Co =256 
 syntax enable
@@ -111,7 +120,8 @@ let $SOLARIZED_DIR=expand("~/.vim/bundle/vim-colors-solarized")
 if isdirectory($SOLARIZED_DIR)
     colorscheme solarized
 endif
-    
+call togglebg#map("<F5>")
+
 "vim private config
 set relativenumber
 set number
