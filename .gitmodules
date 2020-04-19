@@ -27,4 +27,4 @@
 	url = https://github.com/joel-porquet/zsh-dircolors-solarized
 [submodule "zsh/themes"]
 	path = zsh/themes
-	url = git@github.com:paddykontschak/Solarizsh.git
+	url = https://github.com/paddykontschak/Solarizsh.git
