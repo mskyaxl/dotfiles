@@ -97,8 +97,7 @@ map <C-n> :NERDTreeToggle<CR>
 let g:cpp_member_variable_highlight = 1
 
 "add mouse support
-
-
+set mouse=a
 
 "if has("mouse_sgr")
 "    set ttymouse=sgr
@@ -112,7 +111,7 @@ let g:cpp_member_variable_highlight = 1
 
 set t_Co =256 
 syntax enable
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 set background=dark
 "colorscheme dracula
 

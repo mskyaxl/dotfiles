@@ -5,13 +5,17 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/.oh-my-zsh
 export PYTHONDONTWRITEBYTECODE=1
 export EDITOR='vim'
+
+
 # zsh tmux settings
 #ZSH_TMUX_AUTOSTART='true'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="solarizsh"
+#fix autosuggest collor to work with solarized
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
