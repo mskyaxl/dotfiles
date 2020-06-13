@@ -45,7 +45,7 @@ Plugin 'derekwyatt/vim-fswitch'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
-
+Plugin 'tmux-plugins/vim-tmux'
 "[4]git plugin
 Plugin 'tpope/vim-fugitive'
 
@@ -99,11 +99,11 @@ let g:cpp_member_variable_highlight = 1
 "add mouse support
 set mouse=a
 
-"if has("mouse_sgr")
-"    set ttymouse=sgr
-"else
-"    set ttymouse=xterm2
-"end
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 "let &t_ti.="\e[?7727h"
 "let &t_te.="\e[?7727l"
 "noremap <Esc>O[ <Esc>
