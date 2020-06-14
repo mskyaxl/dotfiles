@@ -110,8 +110,11 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
- export DISPLAY=$WSL_HOST_IP:0
+if [[ "$(< /proc/sys/kernel/osrelease)" == *icrosoft* ]]; then
+  if [[ -z "${WSL_HOST_IP}" ]]; then
+    WSL_HOST_IP=localhost
+  fi
+  export DISPLAY=$WSL_HOST_IP:0.0
 fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
