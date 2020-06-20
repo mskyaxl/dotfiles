@@ -118,8 +118,8 @@ set background=dark
 let $SOLARIZED_DIR=expand("~/.vim/bundle/vim-colors-solarized")
 if isdirectory($SOLARIZED_DIR)
     colorscheme solarized
+    call togglebg#map("<F5>")
 endif
-call togglebg#map("<F5>")
 
 "vim private config
 set relativenumber
