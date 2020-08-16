@@ -112,7 +112,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #TODO: find a better way to detect WSL version
 if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft* ]]; then
   echo "You are running WSL1"
-  export DISPLAY=$WSL_HOST_IP:0.0
+  export DISPLAY=localhost:0.0
   export LIBGL_ALWAYS_INDIRECT=1
 fi
 
