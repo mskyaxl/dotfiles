@@ -79,7 +79,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 "
-
+set pastetoggle=<F2>
 
 " Start NERDTree
 autocmd VimEnter * NERDTree

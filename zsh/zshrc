@@ -112,16 +112,14 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 #TODO: find a better way to detect WSL version
 if [[ "$(< /proc/sys/kernel/osrelease)" == *Microsoft* ]]; then
   echo "You are running WSL1"
-  export DISPLAY=localhost:0.0
-  export LIBGL_ALWAYS_INDIRECT=1
 fi
 
 if [[ "$(< /proc/sys/kernel/osrelease)" == *microsoft* ]]; then
   echo "You are running WSL2"
   export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-  export LIBGL_ALWAYS_INDIRECT=1
 fi
 
+export LIBGL_ALWAYS_INDIRECT=1
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
