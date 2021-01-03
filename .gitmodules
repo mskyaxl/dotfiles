@@ -28,3 +28,6 @@
 [submodule "zsh/themes"]
 	path = zsh/themes
 	url = https://github.com/paddykontschak/Solarizsh.git
+[submodule "zsh/plugins/zsh-pwd-tmux"]
+	path = zsh/plugins/zsh-pwd-tmux
+	url = https://github.com/mskyaxl/zsh-pwd-tmux.git
