@@ -14,6 +14,7 @@
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
     ~/.zshrc: zsh/zshrc
     ~/.vimrc: vim/vimrc
+    ~/.config/alacritty: alacritty
     ~/.vim/bundle/Vundle.vim:
       path: vim/bundle/Vundle.vim
 

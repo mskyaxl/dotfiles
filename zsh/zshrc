@@ -73,7 +73,7 @@ ZSH_CUSTOM=$DOTFILES/zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-pwd-tmux
+  tmux
   zsh-dircolors-solarized 
   zsh-completions
   zsh-autosuggestions
