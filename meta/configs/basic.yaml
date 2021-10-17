@@ -1,0 +1,15 @@
+
+- link:
+    ~/.profile: bash/profile
+    ~/.bashrc: bash/bashrc
+    ~/.bash_logout: bash/bash_logout
+
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  -
+    command: meta/install_packages.sh basic
+    stdin: true
+    stdout: true
+    description: Installing packages

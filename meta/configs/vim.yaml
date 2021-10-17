@@ -1,0 +1,16 @@
+- link:
+    ~/.vimrc: vim/vimrc
+    ~/.vim/bundle/Vundle.vim:
+      path: vim/bundle/Vundle.vim
+
+- shell:
+  -
+    command: meta/install_packages.sh vim
+    stdin: true
+    stdout: true
+    description: Installing packages
+
+  - command: vim +PluginInstall +qall
+    stdin: true
+    stdout: true
+    description: Installing vim plugins

@@ -2,7 +2,7 @@
 	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule ".dotbot"]
-	path = .dotbot
+	path = meta/dotbot
 	url = https://github.com/anishathalye/dotbot
 [submodule "zsh/plugins/zsh-completions"]
 	path = zsh/plugins/zsh-completions
@@ -17,7 +17,7 @@
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "aptget/dotbot_plugin_aptget"]
-	path = aptget/dotbot_plugin_aptget
+	path = meta/dotbot_plugin_aptget
 	url = https://github.com/dein0s/dotbot_plugin_aptget.git
 [submodule "zsh/plugins/zsh-history-substring-search"]
 	path = zsh/plugins/zsh-history-substring-search

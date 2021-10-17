@@ -1,0 +1,11 @@
+
+- link:
+    ~/.config/alacritty: alacritty
+
+- shell:
+  -
+    command: meta/install_packages.sh alacritty
+    stdin: true
+    stdout: true
+    description: Installing packages
+
