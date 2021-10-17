@@ -1,0 +1,1 @@
+- aptget: [mc, build-essential, ruby-dev, cmake]

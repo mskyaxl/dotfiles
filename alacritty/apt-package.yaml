@@ -1,0 +1,4 @@
+- aptget:
+    alacritty:
+        ppa_source: ppa:aslatter/ppa 
+        upgrade: true

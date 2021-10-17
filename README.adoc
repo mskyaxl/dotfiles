@@ -1,0 +1,112 @@
+
+= Dotfiles
+
+:toc:
+
+== dotfiles
+ • powered by https://git.io/dotbot 💾
+
+== Dotbot Template
+Template repository for advanced https://github.com/anishathalye/dotbot[Dotbot] configuration.
+
+For getting started, please review the https://github.com/ecarlson94/dotbot-template/wiki[Wiki]!
+
+The structure of this repository is heavily inspired by 
+https://github.com/vsund/dotfiles[vsund], https://github.com/vbrandl/dotfiles[vbrandl] 
+and https://github.com/ecarlson94/dotbot-template[dotbot-template].
+
+=== Table of Contents
+
+- <<dependencies, Dependencies>>
+- <<installation, Installation>>
+    * <<install-profile, Installing a predefined profile>>
+
+    * <<install-standalone, Installing single configurations>>
+
+- <<contents, Contents>>
+
+    * <<contents-profiles, Profiles>>
+
+    * <<contents-configs, Configs>>
+
+- <<license, License>>
+
+
+[#dependencies]
+=== Dependencies
+- git
+
+[#instalation]
+=== Installation
+
+[source,bash]
+--
+
+~$ git clone --recursive https://github.com/OWNER/REPO.git ~/.REPO
+~$ cd ~/.REPO
+
+--
+
+[#install-profile]
+==== For installing a predefined profile:
+
+[source,bash]
+--
+
+~/.REPO$ ./install-profile <profile> [<configs...>]
+
+--
+
+See link:./meta/profiles[meta/profiles/] for available profiles
+
+[#install-standalone]
+==== For installing single configurations:
+
+[source,bash]
+--
+
+~/.REPO$ ./install-standalone <configs...>
+
+--
+
+See link:./meta/configs[meta/configs/] for available configurations
+
+NOTE: Any configuration can be run as sudo by adding `-sudo` to the end of it when invoking the install script.
+*DO NOT* run the script as a sudoer.
+
+[contents]
+=== Contents
+
+[#contents-profiles]
+==== Profiles
+
+meta/profiles
+
+- link:./meta/profiles/base[base]
+
+- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty
+
+
+[#contents-configs]
+==== Configs
+
+meta
+
+- link:./meta/base.yaml[base.yaml]
+
+- configs
+
+    * link:./meta/configs/basic.yaml[basic.yaml] (mc, build-essential, ruby-dev, cmake)
+
+    * link:./meta/configs/tmux.yaml[tmux.yaml]
+
+    * link:./meta/configs/vim.yaml[vim.yaml]
+
+    * link:./meta/configs/zsh.yaml[zsh.yaml]
+
+    * link:./meta/configs/alacritty.yaml[alacritty.yaml]
+
+[#license]
+=== License
+This software is hereby released under an MIT License. That means you can do whatever you want with conditions only requiring preservation of copyright and license notices.
+See link:./LICENSE[LICENSE] for details.
