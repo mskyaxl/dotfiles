@@ -84,7 +84,7 @@ meta/profiles
 
 - link:./meta/profiles/base[base]
 
-- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty
+- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc
 
 
 [#contents-configs]
@@ -105,6 +105,10 @@ meta
     * link:./meta/configs/zsh.yaml[zsh.yaml]
 
     * link:./meta/configs/alacritty.yaml[alacritty.yaml]
+
+    * link:./meta/configs/keepassxc.yaml[keepassxc.yaml]
+
+    * link:./meta/configs/syncthing.yaml[syncthing.yaml]
 
 [#license]
 === License

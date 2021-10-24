@@ -1,0 +1,6 @@
+- shell:
+  -
+    command: meta/install_packages.sh syncthing
+    stdin: true
+    stdout: true
+    description: Installing packages
