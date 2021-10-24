@@ -9,7 +9,7 @@
         quiet: true
 
 - create:
-  - $HOME/.config
+  - ~/.config
 
 - clean:
     ~/:

@@ -84,7 +84,7 @@ meta/profiles
 
 - link:./meta/profiles/base[base]
 
-- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc
+- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc + androiddev
 
 
 [#contents-configs]
@@ -96,7 +96,7 @@ meta
 
 - configs
 
-    * link:./meta/configs/basic.yaml[basic.yaml] (mc, build-essential, ruby-dev, cmake)
+    * link:./meta/configs/basic.yaml[basic.yaml] (mc, cmake)
 
     * link:./meta/configs/tmux.yaml[tmux.yaml]
 
@@ -109,6 +109,8 @@ meta
     * link:./meta/configs/keepassxc.yaml[keepassxc.yaml]
 
     * link:./meta/configs/syncthing.yaml[syncthing.yaml]
+
+    * link:./meta/configs/androiddev.yaml[androiddev.yaml]
 
 [#license]
 === License

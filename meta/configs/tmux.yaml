@@ -2,15 +2,8 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
 
-- shell:
-  -
-    command: meta/install_packages.sh tmux
-    stdin: true
-    stdout: true
-    description: Installing packages
+- sudo :
+  - aptget: [tmux]
 
-  - 
-    command: ~/.tmux/plugins/tpm/bin/install_plugins
-    stdin: true
-    stdout: false
-    description: Installing tmux plugins
+- shell:
+  - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]

@@ -1,16 +1,13 @@
 - link:
     ~/.vimrc: vim/vimrc
-    ~/.vim/bundle/Vundle.vim:
-      path: vim/bundle/Vundle.vim
+    ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
+
+- sudo :
+  - aptget: [vim-gtk, ruby-dev, python3-dev, xdg-utils, ruby-dev]
 
 - shell:
-  -
-    command: meta/install_packages.sh vim
-    stdin: true
-    stdout: true
-    description: Installing packages
-
   - command: vim +PluginInstall +qall
     stdin: true
     stdout: true
+    quiet: true
     description: Installing vim plugins

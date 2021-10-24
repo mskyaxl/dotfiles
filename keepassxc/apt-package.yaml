@@ -1,4 +1,0 @@
-- aptget:
-    keepassxc:
-        ppa_source: ppa:phoerious/keepassxc
-        upgrade: true      

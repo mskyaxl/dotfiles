@@ -1,6 +1,6 @@
-- shell:
-  -
-    command: meta/install_packages.sh keepassxc
-    stdin: true
-    stdout: true
-    description: Installing packages
+- sudo:
+  - aptget:
+      keepassxc:
+        ppa_source: ppa:phoerious/keepassxc
+        upgrade: true
+

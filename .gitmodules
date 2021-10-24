@@ -17,7 +17,7 @@
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 [submodule "aptget/dotbot_plugin_aptget"]
-	path = meta/dotbot_plugin_aptget
+	path = meta/dotbot_plugins/dotbot_plugin_aptget
 	url = https://github.com/dein0s/dotbot_plugin_aptget.git
 [submodule "zsh/plugins/zsh-history-substring-search"]
 	path = zsh/plugins/zsh-history-substring-search
@@ -31,3 +31,6 @@
 [submodule "zsh/plugins/zsh-pwd-tmux"]
 	path = zsh/plugins/zsh-pwd-tmux
 	url = https://github.com/mskyaxl/zsh-pwd-tmux.git
+[submodule "meta/dotbot_plugins/dotbot-sudo"]
+	path = meta/dotbot_plugins/dotbot-sudo
+	url = https://github.com/DrDynamic/dotbot-sudo.git

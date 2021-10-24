@@ -1,9 +1,9 @@
 - link:
     ~/.config/alacritty: alacritty
 
-- shell:
-  -
-    command: meta/install_packages.sh alacritty
-    stdin: true
-    stdout: true
-    description: Installing packages
+- sudo:
+  - aptget:
+      alacritty:
+          ppa_source: ppa:aslatter/ppa 
+          upgrade: true
+

@@ -1,12 +1,10 @@
 - link:
     ~/.zshrc: zsh/zshrc
 
+- sudo:
+  - aptget: [zsh]
+
 - shell:
-  -
-    command: meta/install_packages.sh zsh
-    stdin: true
-    stdout: true
-    description: Installing packages
   - 
     command: zsh/make_zsh_default.sh
     stdin: true
