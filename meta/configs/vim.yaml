@@ -6,8 +6,4 @@
   - aptget: [vim-gtk, ruby-dev, python3-dev, xdg-utils, ruby-dev]
 
 - shell:
-  - command: vim +PluginInstall +qall
-    stdin: true
-    stdout: true
-    quiet: true
-    description: Installing vim plugins
+  - [vim +PluginInstall +qall, Installing vim plugins]
