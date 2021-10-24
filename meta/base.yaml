@@ -3,17 +3,5 @@
         relink: true
         create: true
         force: true
-    shell:
-        stdin: true
-        stdout: true
-        stderr: true
-        quiet: true
 
-- create:
-  - ~/.config
-
-- clean:
-    ~/:
-       force: true
-    ~/.config:
-       recursive: true
+- clean: ['~']

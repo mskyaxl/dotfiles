@@ -1,3 +1,6 @@
+- create:
+  - ~/.config
+
 - link:
     ~/.config/alacritty: alacritty
 
