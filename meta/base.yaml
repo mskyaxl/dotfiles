@@ -6,12 +6,13 @@
     shell:
         stdout: true
         stderr: true
+        quiet: true
 
 - create:
-    - $HOME/.config
+  - $HOME/.config
 
 - clean:
-    $HOME:
-        force: true
-    $HOME/.config:
-        recursive: true
+    ~/:
+       force: true
+    ~/.config:
+       recursive: true

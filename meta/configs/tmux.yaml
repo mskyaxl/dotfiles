@@ -2,7 +2,6 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
 
-
 - shell:
   -
     command: meta/install_packages.sh tmux

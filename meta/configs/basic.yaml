@@ -1,10 +1,7 @@
-
 - link:
     ~/.profile: basic/profile
     ~/.bashrc: basic/bashrc
     ~/.bash_logout: basic/bash_logout
-
-
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
