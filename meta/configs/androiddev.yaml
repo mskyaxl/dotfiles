@@ -1,3 +1,6 @@
+- link:
+    ~/.env/cache: androiddev/ccache
+
 - create:
   - ~/bin
 

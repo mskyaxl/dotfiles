@@ -5,3 +5,6 @@
         force: true
 
 - clean: ['~']
+
+- create:
+  - ~/.env
