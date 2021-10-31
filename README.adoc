@@ -84,7 +84,7 @@ meta/profiles
 
 - link:./meta/profiles/base[base]
 
-- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc + androiddev
+- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc
 
 
 [#contents-configs]
@@ -111,6 +111,10 @@ meta
     * link:./meta/configs/syncthing.yaml[syncthing.yaml]
 
     * link:./meta/configs/androiddev.yaml[androiddev.yaml]
+
+    * link:./meta/configs/arduinodev.yaml[arduinodev.yaml]
+
+    * link:./meta/configs/rust.yaml[rust.yaml]
 
 [#license]
 === License

@@ -1,0 +1,5 @@
+- link:
+    ~/.env/rust_env: rust/rust_env
+
+- shell:
+  - ["curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain nightly --profile default -y", Install rust...]
