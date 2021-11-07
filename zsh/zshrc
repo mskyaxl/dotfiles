@@ -5,7 +5,7 @@ if [ -f ~/.profile ]; then
     source ~/.profile
 fi
 
-for file in ~/.env/; do
+for file in ~/.env/*; do
     source "$file"
 done
 
