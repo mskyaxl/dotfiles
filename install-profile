@@ -41,10 +41,6 @@ for config in ${CONFIGS} ${@}; do
          -p "${SUDO_PLUGIN}" \
          -c "$configFile")
 
-    if [[ $config == *"sudo"* ]]; then
-        cmd=(sudo "${cmd[@]}")
-    fi
-
     "${cmd[@]}"
     rm -f "$configFile"
 done
