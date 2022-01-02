@@ -1,0 +1,5 @@
+- sudo:
+  - aptget:
+      lutris:
+        ppa_source: ppa:lutris-team/lutris
+        upgrade: true

@@ -84,7 +84,9 @@ meta/profiles
 
 - link:./meta/profiles/base[base]
 
-- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc
+- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc + signal-desktop
+
+- link:./meta/profiles/ubuntu_extra[ubuntu] = appimagelauncher + lutris + steam
 
 
 [#contents-configs]
@@ -115,6 +117,15 @@ meta
     * link:./meta/configs/arduinodev.yaml[arduinodev.yaml]
 
     * link:./meta/configs/rust.yaml[rust.yaml]
+
+    * link:./meta/configs/lutris.yaml[lutris.yaml]
+
+    * link:./meta/configs/steam.yaml[steam.yaml]
+
+    * link:./meta/configs/appimagelauncher.yaml[appimagelauncher.yaml]
+
+    * link:./meta/configs/signal-desktop.yaml[signal-desktop.yaml]
+
 
 [#license]
 === License
