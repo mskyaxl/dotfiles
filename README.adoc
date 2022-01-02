@@ -86,8 +86,9 @@ meta/profiles
 
 - link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc + signal-desktop
 
-- link:./meta/profiles/ubuntu_extra[ubuntu] = appimagelauncher + lutris + steam
+- link:./meta/profiles/ubuntu_extra[ubuntu_extra] = appimagelauncher + lutris + steam
 
+- link:./meta/profiles/ubuntu_dev[ubuntu_dev] = rust + androiddev + arduinodev
 
 [#contents-configs]
 ==== Configs
