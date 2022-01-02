@@ -18,3 +18,8 @@ fi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+#load files specific to each tool installed by dotbot
+for file in ~/.env/*; do
+    source "$file"
+done
