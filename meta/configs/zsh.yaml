@@ -5,5 +5,9 @@
   - aptget: [zsh]
 
 - shell:
-  - [zsh/make_zsh_default.sh, Making zsh default]
+  - 
+    command: zsh/make_zsh_default.sh
+    stdin: true
+    stdout: true
+    description: Making zsh default
 
