@@ -1,0 +1,10 @@
+- sudo:
+  - aptget:
+      libldac:
+        ppa_source: ppa:berglh/pulseaudio-a2dp
+        upgrade: true
+      pulseaudio-modules-bt:
+        ppa_source: ppa:berglh/pulseaudio-a2dp
+        upgrade: true
+  - aptget: 
+        [libavcodec-extra58, bluez, pulseaudio, blueman]
