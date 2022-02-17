@@ -1,9 +1,8 @@
 - link:
     ~/.vimrc: vim/vimrc
-    ~/.vim/bundle/Vundle.vim: vim/bundle/Vundle.vim
 
 - sudo :
   - aptget: [vim-gtk, ruby-dev, python3-dev, xdg-utils, ruby-dev]
 
 - shell:
-  - [vim +PluginInstall +qall, Installing vim plugins]
+  - [vim +PlugInstall 4 +qall, Installing vim plugins]

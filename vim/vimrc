@@ -2,83 +2,86 @@ set clipboard^=unnamed,unnamedplus
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-"
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+Plug 'junegunn/vim-plug'
 
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Plugin 'L9'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plug 'L9'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
-Plugin 'ascenator/L9', {'name': 'newL9'}
+Plug 'ascenator/L9', {'name': 'newL9'}
 
 "[1]themes
 """ Theme / Pretty stuff
 """
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'endel/vim-github-colorscheme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
 " " Fugitive will help with git related stuff, and show branch on statusline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dracula/vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim'
 "[2] IDE
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
 "C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'derekwyatt/vim-fswitch'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'derekwyatt/vim-fswitch'
+" Plug 'neoclide/coc.nvim'
 "[3]
 "FocusGained and FocusLost autocommand events are not working in terminal vim.
 "This plugin restores them when using vim inside Tmux.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'christoomey/vim-tmux-runner'
-Plugin 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'tmux-plugins/vim-tmux'
 "[4]git plugin
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 "[markdown]
 "helps aligning MD tables  
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 "[fuzzy file search]
 "powerfull plugin to jump to files, fast but depending on ruby
-Plugin 'wincent/command-t'
+Plug 'wincent/command-t'
 "another plugin to jump to files slower but no dependencies 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 "[session management]
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
-Plugin 'gikmx/ctrlp-obsession'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
-"
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+Plug 'gikmx/ctrlp-obsession'
+" Initialize plugin system
+call plug#end()
+
+
 set pastetoggle=<F2>
 
 " Start NERDTree
@@ -104,10 +107,10 @@ if has("mouse_sgr")
 else
     set ttymouse=xterm2
 end
-"let &t_ti.="\e[?7727h"
-"let &t_te.="\e[?7727l"
-"noremap <Esc>O[ <Esc>
-"noremap! <Esc>O[ <Esc>
+" let &t_ti.="\e[?7727h"
+" let &t_te.="\e[?7727l"
+" noremap <Esc>O[ <Esc>
+" noremap! <Esc>O[ <Esc>
 
 set t_Co =256 
 syntax enable
@@ -115,7 +118,7 @@ syntax enable
 set background=dark
 "colorscheme dracula
 
-let $SOLARIZED_DIR=expand("~/.vim/bundle/vim-colors-solarized")
+let $SOLARIZED_DIR=expand("~/.vim/plugged/vim-colors-solarized")
 if isdirectory($SOLARIZED_DIR)
     colorscheme solarized
     call togglebg#map("<F5>")
