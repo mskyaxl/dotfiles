@@ -1,4 +1,2 @@
 - sudo:
-  - aptget:
-      steam:
-        upgrade: true
+  - aptget: [steam:i386 ]
