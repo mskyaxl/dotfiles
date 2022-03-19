@@ -1,6 +1,7 @@
 set clipboard^=unnamed,unnamedplus
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set encoding=UTF-8
 
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -41,19 +42,24 @@ Plug 'ascenator/L9', {'name': 'newL9'}
 Plug 'altercation/vim-colors-solarized'
 Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
-" " Fugitive will help with git related stuff, and show branch on statusline
+" Fugitive will help with git related stuff, and show branch on statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dracula/vim'
+"Plug 'dracula/vim'
 "[2] IDE
 
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons' |
+            \ Plug 'jistr/vim-nerdtree-tabs' |
+            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
+
 "C++
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'derekwyatt/vim-fswitch'
-" Plug 'neoclide/coc.nvim'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'derekwyatt/vim-fswitch'
 "[3]
 "FocusGained and FocusLost autocommand events are not working in terminal vim.
 "This plugin restores them when using vim inside Tmux.
@@ -70,19 +76,18 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 "[fuzzy file search]
-"powerfull plugin to jump to files, fast but depending on ruby
-Plug 'wincent/command-t'
 "another plugin to jump to files slower but no dependencies 
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 "[session management]
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
-Plug 'gikmx/ctrlp-obsession'
 " Initialize plugin system
 call plug#end()
 
 
 set pastetoggle=<F2>
+
+let g:coc_global_extensions = ['coc-json', 'coc-git']
 
 " Start NERDTree
 autocmd VimEnter * NERDTree
@@ -93,11 +98,38 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " open NERDTree TAB at startup
 let g:nerdtree_tabs_open_on_console_startup=1
+let g:NERDTreeGitStatusWithFlags = 1
+"let g:NERDTreeGitStatusNodeColorization = 1
+"let g:NERDTreeColorMapCustom = {
+    "\ "Staged"    : "#0ee375",  
+    "\ "Modified"  : "#d9bf91",  
+    "\ "Renamed"   : "#51C9FC",  
+    "\ "Untracked" : "#FCE77C",  
+    "\ "Unmerged"  : "#FC51E6",  
+    "\ "Dirty"     : "#FFBD61",  
+    "\ "Clean"     : "#87939A",   
+    "\ "Ignored"   : "#808080"   
+    "\ }
 
 map <C-n> :NERDTreeToggle<CR>
 
-"cpp syntax
-let g:cpp_member_variable_highlight = 1
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 
 "add mouse support
 set mouse=a
@@ -124,9 +156,17 @@ if isdirectory($SOLARIZED_DIR)
     call togglebg#map("<F5>")
 endif
 
+
 "vim private config
 set relativenumber
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+" always uses spaces instead of tab characters
+set expandtab
 set number
+filetype plugin on
 
 "disable arrow keys
 noremap <Up> <Nop>

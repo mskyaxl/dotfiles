@@ -102,6 +102,35 @@
   #multiplier: 3
 
 # Font configuration
+
+# Font configuration (changes require restart)
+font:
+  ## Normal (roman) font face
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+
+  ## Bold font face
+  bold:
+    family: Hack Nerd Font Mono
+    style: Bold
+
+  ## Italic font face
+  italic:
+    family: Hack Nerd Font Mono
+    style: Italic
+
+  ## Bold italic font face
+  bold_italic:
+    family: Hack Nerd Font Mono
+    style: Bold Italic
+
+  ## Point size
+  ## size: 14.0
+
+
+
+
 #font:
   # Normal (roman) font face
   #normal:
