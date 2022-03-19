@@ -1,0 +1,5 @@
+- sudo:
+  - aptget:
+      audacious:
+        ppa_source: ppa:ubuntuhandbook1/apps 
+        upgrade: true
