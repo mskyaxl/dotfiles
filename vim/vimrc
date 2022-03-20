@@ -43,23 +43,24 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'endel/vim-github-colorscheme'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' |
+             \ Plug 'vim-airline/vim-airline-themes' |
+             \ Plug 'bling/vim-bufferline' 
+Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
+
 "Plug 'dracula/vim'
 "[2] IDE
 
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
             \ Plug 'ryanoasis/vim-devicons' |
-            \ Plug 'jistr/vim-nerdtree-tabs' |
             \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 
-"C++
-"Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'derekwyatt/vim-fswitch'
 "[3]
 "FocusGained and FocusLost autocommand events are not working in terminal vim.
 "This plugin restores them when using vim inside Tmux.
@@ -67,8 +68,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux'
-"[4]git plugin
-Plug 'tpope/vim-fugitive'
 
 "[markdown]
 "helps aligning MD tables  
@@ -99,17 +98,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " open NERDTree TAB at startup
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:NERDTreeGitStatusWithFlags = 1
-"let g:NERDTreeGitStatusNodeColorization = 1
-"let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",  
-    "\ "Modified"  : "#d9bf91",  
-    "\ "Renamed"   : "#51C9FC",  
-    "\ "Untracked" : "#FCE77C",  
-    "\ "Unmerged"  : "#FC51E6",  
-    "\ "Dirty"     : "#FFBD61",  
-    "\ "Clean"     : "#87939A",   
-    "\ "Ignored"   : "#808080"   
-    "\ }
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -130,6 +118,7 @@ endfunction
 
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+autocmd WinNew * wincmd L
 
 "add mouse support
 set mouse=a
@@ -139,14 +128,10 @@ if has("mouse_sgr")
 else
     set ttymouse=xterm2
 end
-" let &t_ti.="\e[?7727h"
-" let &t_te.="\e[?7727l"
-" noremap <Esc>O[ <Esc>
-" noremap! <Esc>O[ <Esc>
 
 set t_Co =256 
 syntax enable
-"let g:solarized_termcolors=256
+
 set background=dark
 "colorscheme dracula
 
@@ -155,6 +140,8 @@ if isdirectory($SOLARIZED_DIR)
     colorscheme solarized
     call togglebg#map("<F5>")
 endif
+
+let g:airline#extensions#tabline#enabled = 1
 
 
 "vim private config
@@ -168,6 +155,9 @@ set expandtab
 set number
 filetype plugin on
 
+" vim-gitgutter used to do this by default:
+highlight! link SignColumn LineNr
+  
 "disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
