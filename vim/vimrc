@@ -88,37 +88,15 @@ set pastetoggle=<F2>
 
 let g:coc_global_extensions = ['coc-json', 'coc-git']
 
-" Start NERDTree
-autocmd VimEnter * NERDTree
-" Go to previous (last accessed) window.
-autocmd VimEnter * wincmd p
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
 "close vim once there is only nerdtree left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
 
 " open NERDTree TAB at startup
 let g:nerdtree_tabs_open_on_console_startup=1
-let g:NERDTreeGitStatusWithFlags = 1
 
 map <C-n> :NERDTreeToggle<CR>
-
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
-autocmd WinNew * wincmd L
 
 "add mouse support
 set mouse=a
