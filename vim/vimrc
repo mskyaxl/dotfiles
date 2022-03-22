@@ -54,13 +54,13 @@ Plug 'jreybert/vimagit'
 
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons' |
             \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
-
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 "[3]
 "FocusGained and FocusLost autocommand events are not working in terminal vim.
 "This plugin restores them when using vim inside Tmux.
@@ -89,8 +89,11 @@ set pastetoggle=<F2>
 let g:coc_global_extensions = [
       \ 'coc-json', 
       \ 'coc-git',
-      \'coc-clangd',
-      \'coc-clang-format-style-options']
+      \ 'coc-explorer',
+      \ 'coc-clangd',
+      \ 'coc-clang-format-style-options']
+let g:coc_user_config = {}
+let g:coc_user_config['explorer.icon.enableNerdfont']='true'
 
 " Start NERDTree and put the cursor back in the other window.
 "autocmd VimEnter * NERDTree | wincmd p
