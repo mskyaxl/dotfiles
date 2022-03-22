@@ -86,15 +86,20 @@ call plug#end()
 
 set pastetoggle=<F2>
 
-let g:coc_global_extensions = ['coc-json', 'coc-git']
+let g:coc_global_extensions = [
+      \ 'coc-json', 
+      \ 'coc-git',
+      \'coc-clangd',
+      \'coc-clang-format-style-options']
 
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 "close vim once there is only nerdtree left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endi
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")  
+                                     \ && b:NERDTree.isTabTree()) | q | endi
 
 " open NERDTree TAB at startup
-let g:nerdtree_tabs_open_on_console_startup=1
+"let g:nerdtree_tabs_open_on_console_startup=1
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -135,7 +140,23 @@ filetype plugin on
 
 " vim-gitgutter used to do this by default:
 highlight! link SignColumn LineNr
-  
+
+set colorcolumn=80
+
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
+
 "disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
