@@ -9,7 +9,7 @@
       alacritty:
           ppa_source: ppa:aslatter/ppa 
           upgrade: true
-  - aptget: [fonts-hack-ttf]
+  - aptget: [fonts-hack-ttf, wmctrl, xdotool]
 
 - shell:
   - 
