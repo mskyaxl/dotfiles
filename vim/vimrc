@@ -73,7 +73,7 @@ Plug 'tmux-plugins/vim-tmux'
 "helps aligning MD tables  
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
+Plug 'habamax/vim-asciidoctor'
 "[fuzzy file search]
 "another plugin to jump to files slower but no dependencies 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -159,6 +159,24 @@ fun! s:LongLineHLToggle()
   echo "Long lines unhighlighted"
  endif
 endfunction
+
+"asciidoc
+" Fold sections, default `0`.
+let g:asciidoctor_folding = 1
+
+" Fold options, default `0`.
+let g:asciidoctor_fold_options = 1
+" Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
+" See limitations in end of the README
+let g:asciidoctor_syntax_conceal = 1
+
+" Highlight indented text, default `1`.
+let g:asciidoctor_syntax_indented = 0
+
+" List of filetypes to highlight, default `[]`
+let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
+
+
 
 "disable arrow keys
 noremap <Up> <Nop>
