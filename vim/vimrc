@@ -129,18 +129,6 @@ endif
 
 let g:airline#extensions#tabline#enabled = 1
 
-
-"vim private config
-set relativenumber
-set smarttab
-set cindent
-set tabstop=2
-set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
-set number
-filetype plugin on
-
 " vim-gitgutter used to do this by default:
 highlight! link SignColumn LineNr
 
@@ -176,7 +164,28 @@ let g:asciidoctor_syntax_indented = 0
 " List of filetypes to highlight, default `[]`
 let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 
+"vim private config
+set relativenumber
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+" always uses spaces instead of tab characters
+set expandtab
+set number
+set path+=**
+set wildmenu
 
+"FILE BROWSING:
+
+filetype plugin on
+" Tweaks for browsing
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 "disable arrow keys
 noremap <Up> <Nop>
