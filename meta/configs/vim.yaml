@@ -2,8 +2,6 @@
     ~/.vimrc: vim/vimrc
 
 - sudo :
-  - aptget: [vim-gtk, ruby-dev, python3-dev, xdg-utils, ruby-dev, clangd-12]
-  - shell:
-    - [update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100, set clangd-12 as default]
+  - aptget: [vim-gtk, python3-dev, xdg-utils]
 - shell:
   - [vim +PlugInstall 4 +qall, Installing vim plugins]

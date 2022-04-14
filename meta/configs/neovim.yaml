@@ -1,0 +1,8 @@
+- link:
+    ~/.vimrc: vim/vimrc
+    ~/.config/nvim/init.vim: neovim/init.vim
+
+- sudo :
+  - aptget: [neovim]
+- shell:
+  - [nvim +PlugInstall 4 +qall, Installing vim plugins]
