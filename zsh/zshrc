@@ -10,8 +10,12 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH=$DOTFILES/zsh/.oh-my-zsh
 export PYTHONDONTWRITEBYTECODE=1
-export EDITOR='vim'
 
+if command -v nvim &>/dev/null 
+then
+  alias vim='nvim'
+fi
+export EDITOR='vim'
 
 # zsh tmux settings
 ZSH_TMUX_AUTOSTART='true'

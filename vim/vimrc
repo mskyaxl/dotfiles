@@ -1,3 +1,6 @@
+set clipboard^=unnamed,unnamedplus
+set relativenumber
+
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -153,7 +156,6 @@ let g:asciidoctor_syntax_indented = 0
 let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 
 if !has('nvim')
- set clipboard^=unnamed,unnamedplus
  set nocompatible              " be iMproved, required
  filetype off                  " required
  set encoding=UTF-8
@@ -167,18 +169,19 @@ if !has('nvim')
   set ttymouse=xterm2
  end
  " vim private config
- set relativenumber
  set smarttab
- set cindent
- set tabstop=2
- set shiftwidth=2
- " always uses spaces instead of tab characters
- set expandtab
- set number
- filetype plugin on
+ set hlsearch
 
 endif
 
+set cindent
+set tabstop=2
+set shiftwidth=2
+" always uses spaces instead of tab characters
+set expandtab
+set number
+set path+=**
+set wildmenu
 
 "FILE BROWSING:
 
