@@ -3,7 +3,7 @@
 NERD_FONT_INSTALL_DIR=~/.local/share/fonts/NerdFonts
 HACK_NERD_FONT_GITHUB=https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack
 
-mkdir -p 
+mkdir -p "${NERD_FONT_INSTALL_DIR}"
 
 curl -fLo "${NERD_FONT_INSTALL_DIR}/Hack Regular Nerd Font Complete Mono.ttf"     ${HACK_NERD_FONT_GITHUB}/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf
 curl -fLo "${NERD_FONT_INSTALL_DIR}/Hack Regular Nerd Font Complete.ttf"          ${HACK_NERD_FONT_GITHUB}/Bold/complete/Hack%20Bold%20Nerd%20Font%20Complete%20Mono.ttf  
