@@ -7,4 +7,4 @@
   - [git submodule update --init --recursive, Installing submodules]
 
 - sudo:
-  - aptget: [mc, cmake, p7zip-full]
+  - aptget: [mc, cmake, p7zip-full, ripgrep, fzf, tree]

@@ -86,6 +86,7 @@ plugins=(
   history
   web-search
   wd
+  fzf
   zsh-history-substring-search
 )
 
