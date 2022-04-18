@@ -1,0 +1,13 @@
+- sudo:
+  - aptget: [powertop, tlp]
+  - shell:
+      - [sed -i 's/\#\(PCIE_ASPM_ON_BAT=\).*/\1\"powersupersave\"/g' /etc/tlp.conf, set PCIE_ASPM_ON_BAT to "powersupersave"]
+      - [sed -i 's/\#\(PCIE_ASPM_ON_AC=\).*/\1\"performance\"/g' /etc/tlp.conf, set PCIE_ASPM_ON_AC to "performance"]
+      - [systemctl enable tlp]
+      - [systemctl restart tlp]
+      - [powertop --auto-tune]
+      - 
+        command: 'if [[ "$(< /sys/power/mem_sleep)" != *\[deep\]* ]]; then kernelstub -a mem_sleep_default=deep; fi'
+        stdin: true
+        stdout: true
+        description: add deep sleep
