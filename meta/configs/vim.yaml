@@ -2,6 +2,6 @@
     ~/.vimrc: vim/vimrc
 
 - sudo :
-  - aptget: [vim-gtk, python3-dev, xdg-utils]
+  - aptget: [vim-gtk, python3-dev, xdg-utils, nodejs, ruby-dev]
 - shell:
   - [vim +PlugInstall 4 +qall, Installing vim plugins]
