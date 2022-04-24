@@ -37,8 +37,8 @@ Plug 'ascenator/L9', {'name': 'newL9'}
 "[1]themes
 """ Theme / Pretty stuff
 """
-Plug 'altercation/vim-colors-solarized'
-Plug 'endel/vim-github-colorscheme'
+Plug 'overcache/NeoSolarized'
+Plug 'rakr/vim-togglebg'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'vim-airline/vim-airline' |
@@ -47,7 +47,6 @@ Plug 'vim-airline/vim-airline' |
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'duggiefresh/vim-easydir'
-"Plug 'dracula/vim'
 "[2] IDE
 
 Plug 'preservim/nerdtree' |
@@ -56,6 +55,7 @@ Plug 'preservim/nerdtree' |
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
+Plug 'kshenoy/vim-signature'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -104,17 +104,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
 
 map <C-n> :NERDTreeToggle<CR>
 
-
-set t_Co =256 
+if has('termguicolors')
+set termguicolors
+endif
 syntax enable
 
 set background=dark
-"colorscheme dracula
-
-let $SOLARIZED_DIR=expand("~/.vim/plugged/vim-colors-solarized")
+colorscheme NeoSolarized 
+let $SOLARIZED_DIR=expand("~/.vim/plugged/NeoSolarized")
 if isdirectory($SOLARIZED_DIR)
-    colorscheme solarized
-    call togglebg#map("<F5>")
+    " Hack to avoid first calling togglebg#map on <F5>
+    let g:no_plugin_maps=1
+    call togglebg#map("<F6>")
+    unlet g:no_plugin_maps
 endif
 
 let g:airline#extensions#tabline#enabled = 1
@@ -122,7 +124,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter used to do this by default:
 highlight! link SignColumn LineNr
-
+let g:gitgutter_override_sign_column_highlight = 0
 set colorcolumn=80
 
 nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
