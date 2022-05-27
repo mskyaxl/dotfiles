@@ -63,7 +63,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux'
-
+"Plug 'edkolev/tmuxline.vim'
 "[markdown]
 "helps aligning MD tables  
 Plug 'godlygeek/tabular'
@@ -113,7 +113,12 @@ set termguicolors
 endif
 syntax enable
 
-set background=dark
+" initialize the colorscheme for the first run
+if system("dconf read /org/gnome/desktop/interface/color-scheme") =~ 'dark'
+  set background=dark
+else
+  set background=light
+endif
 let $SOLARIZED_DIR=expand("~/.vim/plugged/NeoSolarized")
 if isdirectory($SOLARIZED_DIR)
     colorscheme NeoSolarized 
@@ -122,6 +127,23 @@ if isdirectory($SOLARIZED_DIR)
     call togglebg#map("<F6>")
     unlet g:no_plugin_maps
 endif
+" ChangeBackground changes the background mode based on macOS's `Appearance`
+" setting. We also refresh the statusline colors to reflect the new mode.
+function! ChangeBackground()
+  execute "ToggleBG"
+  colorscheme NeoSolarized
+  try
+    execute "AirlineRefresh"
+  catch
+  endtry
+  execute "redraw"
+endfunction
+
+
+"call ChangeBackground()
+ " change the color scheme if we receive a SigUSR1
+" autocmd Signal SIGUSR1 ToggleBG
+autocmd Signal SIGUSR1 call ChangeBackground()
 
 let g:airline#extensions#tabline#enabled = 1
 

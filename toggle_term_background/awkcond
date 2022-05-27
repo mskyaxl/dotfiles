@@ -1,0 +1,15 @@
+{
+  if ($1 == "colors:")
+  {
+    if ($2 == "*dark")
+    {
+      gsub("*dark", "*light")
+    } else if ($2 == "*light")
+    {
+      gsub("*light", "*dark")
+    }
+  }
+
+print
+
+}
