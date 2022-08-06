@@ -93,6 +93,8 @@ let g:coc_global_extensions = [
 let g:coc_user_config = {}
 let g:coc_user_config['explorer.icon.enableNerdfont']='true'
 
+nmap <space>e <Cmd>CocCommand explorer<CR>
+
 " Start NERDTree and put the cursor back in the other window.
 "autocmd VimEnter * NERDTree | wincmd p
 "close vim once there is only nerdtree left
