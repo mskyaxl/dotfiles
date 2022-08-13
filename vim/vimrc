@@ -87,7 +87,9 @@ set pastetoggle=<F2>
 nmap     <C-F>f <Plug>CtrlSFPrompt 
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
-
+let g:ctrlsf_compact_position = 'bottom_inside'
+let g:ctrlsf_populate_qflist = 1
+let g:ctrlsf_default_view_mode = 'compact'
 "exclude .git and .gitignore from file search in ctrlp
 let g:ctrlp_user_command = [
       \'.git', 
