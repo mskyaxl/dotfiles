@@ -1,0 +1,18 @@
+- link:
+    ~/.env/xperia_env: xperia/xperia_env
+
+- create:
+  - ~/bin
+
+- shell:
+  - ['xperia/install_unsin.sh' , install unsin...]
+  - ['xperia/install_newflasher.sh ', install newflasher]
+  -
+    command: xperia/install_xperifirm.sh
+    stdin: true
+    stdout: true
+    description: install xperifirm
+    quiet: false
+- sudo:
+  - aptget: [mono-complete]
+
