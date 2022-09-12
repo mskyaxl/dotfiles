@@ -78,7 +78,10 @@ Plug 'dense-analysis/ale'
 "another plugin to jump to files slower but no dependencies 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dyng/ctrlsf.vim'
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "[session management]
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
@@ -88,6 +91,11 @@ call plug#end()
 
 set pastetoggle=<F2>
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nmap     <C-F>f <Plug>CtrlSFPrompt 
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
