@@ -31,3 +31,6 @@
 [submodule "meta/dotbot_plugins/dotbot-sudo"]
 	path = meta/dotbot_plugins/dotbot-sudo
 	url = https://github.com/DrDynamic/dotbot-sudo.git
+[submodule "zsh/plugins/zsh-fzf-history-search"]
+	path = zsh/plugins/zsh-fzf-history-search
+	url = https://github.com/joshskidmore/zsh-fzf-history-search

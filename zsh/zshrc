@@ -90,6 +90,7 @@ plugins=(
   wd
   fzf
   zsh-history-substring-search
+  zsh-fzf-history-search
 )
 
 
