@@ -70,6 +70,9 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'habamax/vim-asciidoctor'
+"[css]display colors in files
+Plug 'ap/vim-css-color'
+
 "[rust]
 
 Plug 'rust-lang/rust.vim'
@@ -78,6 +81,10 @@ Plug 'dense-analysis/ale'
 "another plugin to jump to files slower but no dependencies 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dyng/ctrlsf.vim'
+"TODO: check fzf
+"Plug 'junegunn/fzf'
+
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
@@ -251,4 +258,4 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
-
+autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux
