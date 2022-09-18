@@ -3,7 +3,11 @@
     ~/.config/nvim/init.vim: neovim/init.vim
 
 - sudo :
-  - aptget: [neovim, nodejs, ruby-dev, python-is-python3, python3-pip, ack]
+  - aptget: 
+     neovim:
+        ppa_source: ppa:neovim-ppa/stable
+        upgrade: true 
+  - aptget: [nodejs, ruby-dev, python-is-python3, python3-pip, ack]
   - shell: [gem install neovim]
   - shell: [npm install -g neovim]
 - shell:
