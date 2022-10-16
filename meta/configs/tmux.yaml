@@ -3,7 +3,7 @@
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
 
 - sudo :
-  - aptget: [tmux]
+  - aptget: [tmux, wl-clipboard]
 
 - shell:
   - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
