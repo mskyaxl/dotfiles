@@ -39,7 +39,7 @@ Plug 'ascenator/L9', {'name': 'newL9'}
 """
 Plug 'overcache/NeoSolarized'
 Plug 'gruvbox-community/gruvbox'
-Plug 'rakr/vim-togglebg'
+Plug 'mikker/vim-togglebg'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'vim-airline/vim-airline' |
@@ -84,11 +84,12 @@ Plug 'dyng/ctrlsf.vim'
 "TODO: check fzf
 "Plug 'junegunn/fzf'
 
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
 "[session management]
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
@@ -125,11 +126,12 @@ let g:coc_global_extensions = [
 let g:coc_user_config = {}
 let g:coc_user_config['explorer.icon.enableNerdfont']='true'
 
-nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <leader>e <Cmd>CocCommand explorer<CR>
 
-
+if has('nvim')
 if has('termguicolors')
 set termguicolors
+endif
 endif
 syntax enable
 
