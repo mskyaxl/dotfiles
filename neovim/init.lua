@@ -1,5 +1,4 @@
-
-vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
@@ -13,14 +12,18 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-
 require("plugins")
 require("keymaps")
 require("nvimtree")
+require("asciidoctor")
+require("clangd_cfg")
 require("lsp")
--- Only required if you have packer configured as `opt`
+require("cmp_cfg")
+require("treesitter")
 
+-- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
+
 -- Hack to avoid first calling togglebg#map on <F5>
 vim.g.background=dark
 vim.cmd [[
@@ -51,6 +54,8 @@ vim.cmd [[
 vim.g.gitgutter_override_sign_column_highlight = 0
 vim.g.colorcolumn = 80
 
+
+-- TODO replace this with lua
 -- vim.cmd [[
 -- nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
 -- hi OverLength ctermbg=none cterm=none
@@ -65,22 +70,4 @@ vim.g.colorcolumn = 80
 --   echo "Long lines unhighlighted"
 --  endif
 -- endfunction]]
-
--- asciidoc
--- Fold sections, default `0`.
-vim.g.asciidoctor_folding = 1
-
--- Fold options, default `0`.
-vim.g.asciidoctor_fold_options = 1
--- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
--- See limitations in end of the README
-vim.g.asciidoctor_syntax_conceal = 1
-
--- Highlight indented text, default `1`.
-vim.g.asciidoctor_syntax_indented = 0
-
--- List of filetypes to highlight, default `[]`
-vim.g.asciidoctor_fenced_languages = {'python', 'c', 'javascript'}
-
-
 

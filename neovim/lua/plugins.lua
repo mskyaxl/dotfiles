@@ -83,6 +83,8 @@ return require('packer').startup(function(use)
             ts_update()
         end,
   }
+  use 'p00f/clangd_extensions.nvim'
+
   -- Find in files
   use 'ctrlpvim/ctrlp.vim'
   use 'dyng/ctrlsf.vim'
