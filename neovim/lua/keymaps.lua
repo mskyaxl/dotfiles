@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- Find files using Telescope command-line sugar.
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -11,4 +13,4 @@ vim.api.nvim_set_keymap('n', '<C-F>n', '<Plug>CtrlSFCwordPath', {})
 vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', {})
 
 -- NvimTree
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeToggle<CR>', {})
