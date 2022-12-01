@@ -26,25 +26,65 @@ return require('packer').startup(function(use)
   use 'tmux-plugins/vim-tmux'
   -- Theme / Pretty stuff
   use 'ryanoasis/vim-devicons'
-  use 'airblade/vim-gitgutter'
+  use {'airblade/vim-gitgutter',
+       config = function()
+         vim.g.gitgutter_override_sign_column_highlight = 0
+         -- vim-gitgutter used to do this by default:
+         vim.cmd [[highlight! link SignColumn LineNr]]
+       end
+ }
   use 'kshenoy/vim-signature'
 
   use 'overcache/NeoSolarized'
-  use 'gruvbox-community/gruvbox'
+  use { 'gruvbox-community/gruvbox',
+        config = function() 
+          -- Hack to avoid first calling togglebg#map on <F5>
+          vim.g.background=dark
+--          vim.cmd [[
+--             colorscheme gruvbox 
+--             let g:no_plugin_maps=1
+--             call togglebg#map("<F6>")
+--             unlet g:no_plugin_maps]]
+        end
+  }
   use 'mikker/vim-togglebg'
   use 'ap/vim-css-color'
   -- markdown
   use { 'plasticboy/vim-markdown', ft = 'md'}
   use { 'godlygeek/tabular', ft = 'md'}
   -- asciidoc 
-  use { 'habamax/vim-asciidoctor', ft = 'md'}
+  use { 'habamax/vim-asciidoctor',
+        ft = 'adoc',
+        config = function()
+          -- asciidoc
+          -- Fold sections, default `0`.
+          vim.g.asciidoctor_folding = 1
+          
+          -- Fold options, default `0`.
+          vim.g.asciidoctor_fold_options = 1
+          -- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
+          -- See limitations in end of the README
+          vim.g.asciidoctor_syntax_conceal = 1
+          
+          -- Highlight indented text, default `1`.
+          vim.g.asciidoctor_syntax_indented = 0
+          
+          -- List of filetypes to highlight, default `[]`
+          vim.g.asciidoctor_fenced_languages = {'python', 'c', 'javascript'}
+        end
+    }
   --vim airline
   use {
     'vim-airline/vim-airline',
     requires = { 
       {'vim-airline/vim-airline-themes'},
       {'bling/vim-bufferline'}
-    }
+    },
+    config = function()
+      vim.cmd [[let g:airline#extensions#tabline#enabled = 1]]
+      -- vim.g.airline#extensions#tabline#enabled = 1
+      --vim.g.airline.extensions.tabline.enabled = 1
+    end
   }
   -- tree
   use {
@@ -86,9 +126,23 @@ return require('packer').startup(function(use)
   use 'p00f/clangd_extensions.nvim'
 
   -- Find in files
-  use 'ctrlpvim/ctrlp.vim'
-  use 'dyng/ctrlsf.vim'
-  
+  use {'ctrlpvim/ctrlp.vim',
+       config = function()
+         vim.g.ctrlsf_compact_position = 'bottom_inside'
+         vim.g.ctrlsf_populate_qflist = 1
+         vim.g.ctrlsf_default_view_mode = 'compact'
+       end
+  }
+ use { 'dyng/ctrlsf.vim',
+       config = function()
+         -- exclude .git and .gitignore from file search in ctrlp
+         vim.g.ctrlp_user_command = {
+                '.git', 'cd %s && git ls-files -co --exclude-standard'}
+         vim.g.ctrlp_show_hidden = 1   
+       end
+
+ }
+ 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
