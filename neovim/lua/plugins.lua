@@ -50,11 +50,11 @@ return require('packer').startup(function(use)
   use 'mikker/vim-togglebg'
   use 'ap/vim-css-color'
   -- markdown
-  use { 'plasticboy/vim-markdown', ft = 'md'}
-  use { 'godlygeek/tabular', ft = 'md'}
+  use { 'plasticboy/vim-markdown', ft = {'markdown'}}
+  use { 'godlygeek/tabular', ft = {'markdown'}}
   -- asciidoc 
   use { 'habamax/vim-asciidoctor',
-        ft = 'adoc',
+        ft = {'ascii', 'text'},
         config = function()
           -- asciidoc
           -- Fold sections, default `0`.

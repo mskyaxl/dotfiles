@@ -1,29 +1,28 @@
 vim.cmd [[set clipboard^=unnamed,unnamedplus]]
-
-
 -- vim.opt.clipboard = "unnamed,unnamedplus"
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
 vim.opt.swapfile = false
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.pastetoggle = "<F2>"
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = {80, 120}
 vim.g.loaded_perl_provider = 0 
-require("lsp")
+
 require("plugins")
 require("keymaps")
 require("nvimtree")
-require("clangd_cfg")
+require("lsp")
+require("clangd_lsp")
 require("treesitter")
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
 
 -- Hack to avoid first calling togglebg#map on <F5>
 vim.g.background=dark
@@ -33,7 +32,6 @@ vim.cmd [[
     call togglebg#map("<F6>")
     unlet g:no_plugin_maps]]
 
-vim.g.pastetoggle = "<F2>"
 
 
 -- TODO replace this with lua
