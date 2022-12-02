@@ -1,5 +1,5 @@
-vim.cmd [[set clipboard^=unnamed,unnamedplus]]
 -- vim.opt.clipboard = "unnamed,unnamedplus"
+vim.cmd [[set clipboard^=unnamed,unnamedplus]]
 
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
@@ -11,7 +11,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = true
 vim.opt.swapfile = false
-vim.g.pastetoggle = "<F2>"
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = {80, 120}
@@ -24,6 +23,8 @@ require("lsp")
 require("clangd_lsp")
 require("treesitter")
 
+vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
+vim.o.undofile = true
 -- Hack to avoid first calling togglebg#map on <F5>
 vim.g.background=dark
 vim.cmd [[
@@ -32,7 +33,15 @@ vim.cmd [[
     call togglebg#map("<F6>")
     unlet g:no_plugin_maps]]
 
+--fix clipboard
+vim.cmd [[
+    noremap <Leader>y "*y
+    noremap <Leader>p "*p
+    noremap <Leader>Y "+y
+    noremap <Leader>P "+p]]
 
+--set tmuxtheme filetype to tmux
+vim.cmd [[autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux]]
 
 -- TODO replace this with lua
 -- vim.cmd [[
