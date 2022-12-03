@@ -1,9 +1,5 @@
--- vim.opt.clipboard = "unnamed,unnamedplus"
-vim.cmd [[set clipboard^=unnamed,unnamedplus]]
-
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+--vim.cmd [[set clipboard^=unnamed,unnamedplus]]
+vim.opt.clipboard:prepend('unnamed,unnamedplus')
 
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -32,13 +28,6 @@ require('nvim_comment').setup()
 
 vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
--- Hack to avoid first calling togglebg#map on <F5>
-vim.g.background=dark
-vim.cmd [[
-    colorscheme gruvbox 
-    let g:no_plugin_maps=1
-    call togglebg#map("<F6>")
-    unlet g:no_plugin_maps]]
 
 --fix clipboard
 vim.cmd [[
@@ -46,7 +35,6 @@ vim.cmd [[
     noremap <Leader>p "*p
     noremap <Leader>Y "+y
     noremap <Leader>P "+p]]
-
 --set tmuxtheme filetype to tmux
 vim.cmd [[autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux]]
 

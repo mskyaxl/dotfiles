@@ -3,7 +3,8 @@ require('lspconfig').cmake.setup{}
 require('lspconfig').rust_analyzer.setup{}
 
 
-vim.cmd [[set completeopt=menu,menuone,noselect]]
+vim.o.completeopt='menu,menuone,noselect'
+
 -- Set up nvim-cmp.
 local cmp = require'cmp'
 

@@ -25,9 +25,7 @@ return require('packer').startup(function(use)
       {'bling/vim-bufferline'}
     },
     config = function()
-      vim.cmd [[let g:airline#extensions#tabline#enabled = 1]]
-      -- vim.g.airline#extensions#tabline#enabled = 1
-      --vim.g.airline.extensions.tabline.enabled = 1
+      vim.g["airline#extensions#tabline#enabled"] = 1
     end
   }
   --    [git]
@@ -40,10 +38,19 @@ return require('packer').startup(function(use)
        end
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use 'tpope/vim-fugitive'
+  use {'tpope/vim-fugitive',
+        requires = { 
+            {'mskyaxl/vim-fubitive'},
+            {'tpope/vim-rhubarb'}
+        },
+        config = function()
+          local status, lfs = pcall(require, "fubitive_cfg")
+          if(status) then
+              --lfs exists, so use it.
+          end
+        end
+  }
   use 'jreybert/vimagit'
-  -- open browser to the corresponding line
-  use 'ruanyl/vim-gh-line'
 
   use 'duggiefresh/vim-easydir'
   --  [tmux]
@@ -54,19 +61,21 @@ return require('packer').startup(function(use)
   use 'kshenoy/vim-signature'
   use 'terrortylor/nvim-comment'
   -- [themes]
-  use 'overcache/NeoSolarized'
-  use { 'gruvbox-community/gruvbox',
-        config = function() 
-          -- Hack to avoid first calling togglebg#map on <F5>
-          vim.g.background=dark
---          vim.cmd [[
---             colorscheme gruvbox 
---             let g:no_plugin_maps=1
---             call togglebg#map("<F6>")
---             unlet g:no_plugin_maps]]
-        end
+  use {'mikker/vim-togglebg',
+       requires = {
+           {'gruvbox-community/gruvbox'},
+           {'overcache/NeoSolarized'}
+       },
+       config = function() 
+         -- Hack to avoid first calling togglebg#map on <F5>
+         vim.g.background=dark
+         --vim.colorscheme = "gruvbox"
+         vim.cmd [[colorscheme gruvbox]]
+         vim.g.no_plugin_maps = 1
+         vim.fn['togglebg#map']("<F6>")
+         vim.g.no_plugin_maps = nil
+       end
   }
-  use 'mikker/vim-togglebg'
   -- colors
   use 'ap/vim-css-color'
   -- markdown
@@ -74,7 +83,7 @@ return require('packer').startup(function(use)
   use { 'godlygeek/tabular', ft = {'markdown'}}
   -- asciidoc 
   use { 'habamax/vim-asciidoctor',
-        ft = {'ascii', 'text'},
+        ft = {'ASCII', 'text', 'asciidoc', 'adoc', 'asciidoctor'},
         config = function()
           -- asciidoc
           -- Fold sections, default `0`.
@@ -141,15 +150,14 @@ return require('packer').startup(function(use)
          vim.g.ctrlsf_default_view_mode = 'compact'
        end
   }
- use { 'dyng/ctrlsf.vim',
+  use { 'dyng/ctrlsf.vim',
        config = function()
          -- exclude .git and .gitignore from file search in ctrlp
          vim.g.ctrlp_user_command = {
                 '.git', 'cd %s && git ls-files -co --exclude-standard'}
          vim.g.ctrlp_show_hidden = 1   
        end
-
- }
+  }
  
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
