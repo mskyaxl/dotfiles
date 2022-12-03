@@ -16,12 +16,19 @@ vim.opt.termguicolors = true
 vim.opt.colorcolumn = {80, 120}
 vim.g.loaded_perl_provider = 0 
 
+-- [[ Splits ]]
+--vim.opt.splitright = true            -- bool: Place new window to right of current one
+
+
 require("plugins")
 require("keymaps")
 require("nvimtree")
 require("lsp")
 require("clangd_lsp")
 require("treesitter")
+
+
+require('nvim_comment').setup()
 
 vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true

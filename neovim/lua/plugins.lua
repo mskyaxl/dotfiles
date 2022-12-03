@@ -17,14 +17,20 @@ return require('packer').startup(function(use)
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
-  use 'tpope/vim-fugitive'
-  use 'jreybert/vimagit'
-  use 'duggiefresh/vim-easydir'
-  use 'tmux-plugins/vim-tmux-focus-events'
-  use 'christoomey/vim-tmux-navigator'
-  use 'christoomey/vim-tmux-runner'
-  use 'tmux-plugins/vim-tmux'
-  -- Theme / Pretty stuff
+  --vim airline
+  use {
+    'vim-airline/vim-airline',
+    requires = { 
+      {'vim-airline/vim-airline-themes'},
+      {'bling/vim-bufferline'}
+    },
+    config = function()
+      vim.cmd [[let g:airline#extensions#tabline#enabled = 1]]
+      -- vim.g.airline#extensions#tabline#enabled = 1
+      --vim.g.airline.extensions.tabline.enabled = 1
+    end
+  }
+  --    [git]
   use 'ryanoasis/vim-devicons'
   use {'airblade/vim-gitgutter',
        config = function()
@@ -32,9 +38,19 @@ return require('packer').startup(function(use)
          -- vim-gitgutter used to do this by default:
          vim.cmd [[highlight! link SignColumn LineNr]]
        end
- }
+  }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use 'tpope/vim-fugitive'
+  use 'jreybert/vimagit'
+  use 'duggiefresh/vim-easydir'
+  --  [tmux]
+  use 'tmux-plugins/vim-tmux-focus-events'
+  use 'christoomey/vim-tmux-navigator'
+  use 'christoomey/vim-tmux-runner'
+  use 'tmux-plugins/vim-tmux'
   use 'kshenoy/vim-signature'
-
+  use 'terrortylor/nvim-comment'
+  -- [themes]
   use 'overcache/NeoSolarized'
   use { 'gruvbox-community/gruvbox',
         config = function() 
@@ -48,6 +64,7 @@ return require('packer').startup(function(use)
         end
   }
   use 'mikker/vim-togglebg'
+  -- colors
   use 'ap/vim-css-color'
   -- markdown
   use { 'plasticboy/vim-markdown', ft = {'markdown'}}
@@ -73,19 +90,7 @@ return require('packer').startup(function(use)
           vim.g.asciidoctor_fenced_languages = {'python', 'c', 'javascript'}
         end
     }
-  --vim airline
-  use {
-    'vim-airline/vim-airline',
-    requires = { 
-      {'vim-airline/vim-airline-themes'},
-      {'bling/vim-bufferline'}
-    },
-    config = function()
-      vim.cmd [[let g:airline#extensions#tabline#enabled = 1]]
-      -- vim.g.airline#extensions#tabline#enabled = 1
-      --vim.g.airline.extensions.tabline.enabled = 1
-    end
-  }
+
   -- tree
   use {
     'nvim-tree/nvim-tree.lua',
