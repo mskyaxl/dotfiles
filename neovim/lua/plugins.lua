@@ -42,6 +42,9 @@ return require('packer').startup(function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'tpope/vim-fugitive'
   use 'jreybert/vimagit'
+  -- open browser to the corresponding line
+  use 'ruanyl/vim-gh-line'
+
   use 'duggiefresh/vim-easydir'
   --  [tmux]
   use 'tmux-plugins/vim-tmux-focus-events'
