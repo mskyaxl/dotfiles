@@ -131,7 +131,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-   -- Configurations for Nvim LSP
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
+  -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
   use {
         'nvim-treesitter/nvim-treesitter',
