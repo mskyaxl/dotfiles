@@ -143,6 +143,11 @@ return require('packer').startup(function(use)
         end,
   }
   use 'p00f/clangd_extensions.nvim'
+  use { 'rhysd/vim-clang-format',
+      run = function()
+        vim.g['clang_format#detect_style_file'] = 1
+      end
+  }
 
   -- Find in files
   use {'ctrlpvim/ctrlp.vim',
