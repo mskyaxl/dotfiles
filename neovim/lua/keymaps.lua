@@ -20,4 +20,4 @@ vim.api.nvim_set_keymap('n', '<C-F>n', '<Plug>CtrlSFCwordPath', {})
 vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', {})
 
 -- NvimTree
-vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeToggle<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeFindFileToggle<CR>', {})
