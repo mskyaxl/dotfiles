@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.pastetoggle = "<F2>"
+vim.o.pastetoggle = "<F2>"
 
 -- Find files using Telescope command-line sugar.
 local builtin = require('telescope.builtin')
