@@ -5,6 +5,7 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - ['basic/install-ripgrep-all.sh' , install riptrep-all]
 
 - sudo:
-  - aptget: [mc, cmake, p7zip-full, ripgrep, fzf, tree]
+  - aptget: [mc, cmake, p7zip-full, ripgrep, fzf, tree, pandoc, poppler-utils, ffmpeg]
