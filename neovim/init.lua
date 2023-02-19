@@ -1,5 +1,5 @@
 --vim.cmd [[set clipboard^=unnamed,unnamedplus]]
-vim.opt.clipboard:prepend('unnamed,unnamedplus')
+--vim.opt.clipboard:prepend('unnamed,unnamedplus')
 
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4

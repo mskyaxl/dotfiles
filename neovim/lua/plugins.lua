@@ -17,6 +17,10 @@ return require('packer').startup(function(use)
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
+  use {
+     'matveyt/neoclip',
+     run = 'cd src && cmake -B build -G Ninja && ninja -C build install/strip'
+  }
   --vim airline
   use {
     'vim-airline/vim-airline',
