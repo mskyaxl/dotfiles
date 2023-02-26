@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
+  -- TODO: try this plugin 
+  -- use {'ojroques/nvim-osc52'}
   use {
      'matveyt/neoclip',
      run = 'cd src && cmake -B build -G Ninja && ninja -C build install/strip'

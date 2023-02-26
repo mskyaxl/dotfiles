@@ -29,12 +29,6 @@ require('nvim_comment').setup()
 vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
 
---fix clipboard
-vim.cmd [[
-    noremap <Leader>y "*y
-    noremap <Leader>p "*p
-    noremap <Leader>Y "+y
-    noremap <Leader>P "+p]]
 --set tmuxtheme filetype to tmux
 vim.cmd [[autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux]]
 
