@@ -16,7 +16,10 @@
 #which wlr-data-control is not implemented
 - cargo:
   - clipboard-sync
+- sudo:
+#clipboard-sync dependencies
+  - aptget: [libxcb-xfixes0-dev, libxfixes-dev]
 - shell: 
-  - [wget -P "$HOME/.config/systemd/users/" https://raw.githubusercontent.com/dnut/clipboard-sync/master/clipboard-sync.service, download systemd service]
+  - [wget -P "$HOME/.config/systemd/user/" https://raw.githubusercontent.com/dnut/clipboard-sync/master/clipboard-sync.service, download systemd service]
   - [systemctl --user enable --now clipboard-sync, enable systemd service]
 
