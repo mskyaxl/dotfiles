@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-if [ -f ~/.profile ]; then
-    source ~/.profile
+# .login is a common file used by both zsh and bash
+if [ -f ~/.config/dotfiles/login ]; then
+    . ~/.config/dotfiles/login
 fi
-
 
 export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.

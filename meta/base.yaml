@@ -5,6 +5,10 @@
         force: true
 
 - create:
-  - ~/.env
+  - ~/.config/dotfiles/login_env
+  - ~/.config/dotfiles/nologin_env
 
-- clean: ['~', '~/.env']
+- clean:
+  - '~'
+  - '~/.config/dotfiles/login_env'
+  - '~/.config/dotfiles/nologin_env'

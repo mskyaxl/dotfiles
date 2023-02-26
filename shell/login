@@ -1,0 +1,5 @@
+
+#load files specific to each tool installed by dotbot
+for file in ~/.config/dotfiles/login_env/*; do
+    source "$file"
+done
