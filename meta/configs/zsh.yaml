@@ -1,5 +1,6 @@
 - link:
     ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
 
 - sudo:
   - aptget: [zsh]

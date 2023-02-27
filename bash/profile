@@ -17,9 +17,10 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+#PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
-#load files specific to each tool installed by dotbot
-for file in ~/.env/*; do
-    source "$file"
-done
+# .login is a common file used by both zsh and bash
+if [ -f ~/.config/dotfiles/login ]; then
+    . ~/.config/dotfiles/login
+fi
+

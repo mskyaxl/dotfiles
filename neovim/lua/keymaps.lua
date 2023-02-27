@@ -22,3 +22,10 @@ vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', {})
 
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeFindFileToggle<CR>', {})
+
+--fix clipboard
+vim.keymap.set('','<Leader>Y', '"*y', {})
+vim.keymap.set('','<Leader>P', '"*p', {})
+vim.keymap.set('','<Leader>y', '"+y', {})
+vim.keymap.set('','<Leader>p', '"+p', {})
+

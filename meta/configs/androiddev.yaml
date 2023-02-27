@@ -1,5 +1,5 @@
 - link:
-    ~/.env/android_env: androiddev/android_env
+    ~/.config/dotfiles/nologin_env/android_env: androiddev/android_env
 
 - create:
   - ~/bin

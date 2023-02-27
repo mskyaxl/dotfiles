@@ -34,3 +34,6 @@
 [submodule "zsh/plugins/zsh-fzf-history-search"]
 	path = zsh/plugins/zsh-fzf-history-search
 	url = https://github.com/joshskidmore/zsh-fzf-history-search
+[submodule "meta/dotbot_plugins/dotbot-rust"]
+	path = meta/dotbot_plugins/dotbot-rust
+	url = https://github.com/alexcormier/dotbot-rust.git

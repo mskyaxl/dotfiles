@@ -16,6 +16,7 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 APT_GET_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot_plugin_aptget/aptget.py"
 SUDO_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-sudo/sudo.py"
+RUST_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-rust/rust.py"
 
 cd "${BASE_DIR}"
 git submodule update --init --recursive

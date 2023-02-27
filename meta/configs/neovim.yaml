@@ -1,13 +1,17 @@
 - link:
     ~/.config/nvim/init.lua: neovim/init.lua
     ~/.config/nvim/lua: neovim/lua
-
 - sudo :
   - aptget: 
      neovim:
         ppa_source: ppa:neovim-ppa/unstable
         upgrade: true 
   - aptget: [python-is-python3, python3-pip, ack]
+  # install needed packages to build matveyt/neoclip
+  - aptget: [libluajit-5.1-dev, extra-cmake-modules, meson]
 - shell:
   - [pip install pynvim && python3 -m pip install --upgrade pynvim]
   - [nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync']
+- cargo:
+  - tree-sitter-cli
+
