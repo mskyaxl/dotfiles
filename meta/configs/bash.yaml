@@ -1,0 +1,21 @@
+- include:
+    path: 'meta/configs/common.yaml'
+    isolated: False
+
+- link:
+    ~/.profile: bash/profile
+    ~/.bashrc: bash/bashrc
+    ~/.bash_logout: bash/bash_logout
+    ~/.config/dotfiles/login: shell/login
+    ~/.config/dotfiles/login_env/loginenv: shell/loginenv
+    ~/.config/dotfiles/nologin: shell/nologin
+    ~/.config/dotfiles/nologin_env/nologinenv: shell/nologinenv
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - ['basic/install-ripgrep-all.sh' , install riptrep-all]
+
+- sudo:
+  - aptget: [mc, cmake, p7zip-full, ripgrep, fzf, tree, pandoc, poppler-utils, ffmpeg, ack]
+
+

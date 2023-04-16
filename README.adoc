@@ -9,19 +9,12 @@
 == Dotbot Template
 Template repository for advanced https://github.com/anishathalye/dotbot[Dotbot] configuration.
 
-For getting started, please review the https://github.com/ecarlson94/dotbot-template/wiki[Wiki]!
-
-The structure of this repository is heavily inspired by 
-https://github.com/vsund/dotfiles[vsund], https://github.com/vbrandl/dotfiles[vbrandl] 
-and https://github.com/ecarlson94/dotbot-template[dotbot-template].
-
 === Table of Contents
 
 - <<dependencies, Dependencies>>
 - <<installation, Installation>>
-    * <<install-profile, Installing a predefined profile>>
 
-    * <<install-standalone, Installing single configurations>>
+    * <<install-profile, Installing a config or profile>>
 
 - <<contents, Contents>>
 
@@ -35,6 +28,7 @@ and https://github.com/ecarlson94/dotbot-template[dotbot-template].
 [#dependencies]
 === Dependencies
 - git
+- python-apt
 
 [#instalation]
 === Installation
@@ -48,31 +42,16 @@ and https://github.com/ecarlson94/dotbot-template[dotbot-template].
 --
 
 [#install-profile]
-==== For installing a predefined profile:
+==== For installing a predefined config/profile:
 
 [source,bash]
 --
 
-~/.REPO$ ./install-profile <profile> [<configs...>]
+~/.REPO$ ./install <path-to-yaml> [<path-to-yaml...>]
 
 --
 
-See link:./meta/profiles[meta/profiles/] for available profiles
-
-[#install-standalone]
-==== For installing single configurations:
-
-[source,bash]
---
-
-~/.REPO$ ./install-standalone <configs...>
-
---
-
-See link:./meta/configs[meta/configs/] for available configurations
-
-NOTE: Any configuration can be run as sudo by adding `-sudo` to the end of it when invoking the install script.
-*DO NOT* run the script as a sudoer.
+See link:./meta/profiles[meta/profiles/] for available profiles and link:./meta/configs[meta/configs/] for available configurations.
 
 [contents]
 === Contents
@@ -82,24 +61,20 @@ NOTE: Any configuration can be run as sudo by adding `-sudo` to the end of it wh
 
 meta/profiles
 
-- link:./meta/profiles/base[base]
+- link:./meta/profiles/base.yaml[base.yaml]
 
-- link:./meta/profiles/ubuntu[ubuntu] = base + alacritty + syncthing + keepassxc + signal-desktop
+- link:./meta/profiles/ubuntu.yaml[ubuntu.yaml]
 
-- link:./meta/profiles/ubuntu_extra[ubuntu_extra] = appimagelauncher + lutris + steam
+- link:./meta/profiles/ubuntu_extra.yaml[ubuntu_extra.yaml]
 
-- link:./meta/profiles/ubuntu_dev[ubuntu_dev] = rust + androiddev + arduinodev
+- link:./meta/profiles/ubuntu_dev.yaml[ubuntu_dev.yaml]
 
 [#contents-configs]
 ==== Configs
 
-meta
+meta/configs
 
-- link:./meta/base.yaml[base.yaml]
-
-- configs
-
-    * link:./meta/configs/basic.yaml[basic.yaml] (mc, cmake)
+    * link:./meta/configs/bash.yaml[basic.yaml]
 
     * link:./meta/configs/tmux.yaml[tmux.yaml]
 

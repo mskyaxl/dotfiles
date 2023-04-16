@@ -1,6 +1,3 @@
-- create:
-  - ~/.config
-
 - link:
     ~/.config/alacritty: alacritty
 
@@ -9,7 +6,7 @@
       alacritty:
           ppa_source: ppa:aslatter/ppa 
           upgrade: true
-  - aptget: [fonts-hack-ttf, wmctrl, xdotool]
+  - aptget: [fonts-hack-ttf]
 
 - shell:
   - 

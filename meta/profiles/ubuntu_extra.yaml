@@ -1,0 +1,14 @@
+# Configure defaults
+- defaults:
+    include:
+     isolated: True
+
+# When only provided a string, that will be treated as the path of the file to include
+- include: 'meta/configs/keepassxc.yaml'
+- include: 'meta/configs/syncthing.yaml'
+- include: 'meta/configs/signal-desktop.yaml'
+- include: 'meta/configs/appimagelauncher.yaml'
+- include: 'meta/configs/lutris.yaml'
+- include: 'meta/configs/steam.yaml'
+- include: 'meta/configs/audacious.yaml'
+

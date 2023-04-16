@@ -2,11 +2,24 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# .nologin is a common file used by both zsh and bash
+# to load env variables for non-interactive shell
+if [ -f ~/.config/dotfiles/nologin ]; then
+    . ~/.config/dotfiles/nologin
+fi
+
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+if [ "$SHELL" != "/usr/bin/zsh" ] && command -v zsh &>/dev/null
+then
+    export SHELL="/usr/bin/zsh"
+    exec /usr/bin/zsh -l # -l: login shell again
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

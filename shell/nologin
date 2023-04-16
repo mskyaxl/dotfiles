@@ -1,0 +1,4 @@
+#load files specific to each tool installed by dotbot
+for file in ~/.config/dotfiles/nologin_env/*; do
+    source "$file"
+done

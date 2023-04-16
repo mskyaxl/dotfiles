@@ -38,7 +38,8 @@ Plug 'ascenator/L9', {'name': 'newL9'}
 """ Theme / Pretty stuff
 """
 Plug 'overcache/NeoSolarized'
-Plug 'rakr/vim-togglebg'
+Plug 'gruvbox-community/gruvbox'
+Plug 'mikker/vim-togglebg'
 " Awesome looking meta at bottom
 " Fugitive will help with git related stuff, and show branch on statusline
 Plug 'vim-airline/vim-airline' |
@@ -69,12 +70,26 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'habamax/vim-asciidoctor'
+"[css]display colors in files
+Plug 'ap/vim-css-color'
 
+"[rust]
+
+Plug 'rust-lang/rust.vim'
+Plug 'dense-analysis/ale'
 "[fuzzy file search]
 "another plugin to jump to files slower but no dependencies 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dyng/ctrlsf.vim'
+"TODO: check fzf
+"Plug 'junegunn/fzf'
 
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+endif
 "[session management]
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
@@ -84,6 +99,11 @@ call plug#end()
 
 set pastetoggle=<F2>
 
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nmap     <C-F>f <Plug>CtrlSFPrompt 
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
@@ -101,15 +121,17 @@ let g:coc_global_extensions = [
       \ 'coc-git',
       \ 'coc-explorer',
       \ 'coc-clangd',
-      \ 'coc-clang-format-style-options']
+      \ 'coc-clang-format-style-options',
+      \ 'coc-rust-analyzer']
 let g:coc_user_config = {}
 let g:coc_user_config['explorer.icon.enableNerdfont']='true'
 
-nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <leader>e <Cmd>CocCommand explorer<CR>
 
-
+if has('nvim')
 if has('termguicolors')
 set termguicolors
+endif
 endif
 syntax enable
 
@@ -119,9 +141,10 @@ if system("dconf read /org/gnome/desktop/interface/color-scheme") =~ 'dark'
 else
   set background=light
 endif
-let $SOLARIZED_DIR=expand("~/.vim/plugged/NeoSolarized")
-if isdirectory($SOLARIZED_DIR)
-    colorscheme NeoSolarized 
+
+let $GRUVBOX_DIR=expand("~/.vim/plugged/gruvbox")
+if isdirectory($GRUVBOX_DIR)
+    colorscheme gruvbox 
     " Hack to avoid first calling togglebg#map on <F5>
     let g:no_plugin_maps=1
     call togglebg#map("<F6>")
@@ -183,6 +206,34 @@ let g:asciidoctor_syntax_indented = 0
 " List of filetypes to highlight, default `[]`
 let g:asciidoctor_fenced_languages = ['python', 'c', 'javascript']
 
+
+" rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 if !has('nvim')
  set nocompatible              " be iMproved, required
  filetype off                  " required
@@ -232,4 +283,4 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
-
+autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux

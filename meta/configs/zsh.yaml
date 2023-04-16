@@ -1,5 +1,10 @@
+- include:
+    path: 'meta/configs/common.yaml'
+    isolated: False
+
 - link:
     ~/.zshrc: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
 
 - sudo:
   - aptget: [zsh]

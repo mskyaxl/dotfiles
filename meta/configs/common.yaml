@@ -1,0 +1,14 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      force: true
+
+- create:
+  - ~/.config/dotfiles/login_env
+  - ~/.config/dotfiles/nologin_env
+
+- clean:
+  - '~'
+  - '~/.config/dotfiles/login_env'
+  - '~/.config/dotfiles/nologin_env'

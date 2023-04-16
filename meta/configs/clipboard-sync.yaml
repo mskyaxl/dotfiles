@@ -1,0 +1,11 @@
+#clipboard-sync is just a workadound needed for neoclip for wayland systems in 
+#which wlr-data-control is not implemented
+- cargo:
+  - clipboard-sync
+- sudo:
+#clipboard-sync dependencies
+  - aptget: [libxcb-xfixes0-dev, libxfixes-dev]
+- shell: 
+  - [wget -P "$HOME/.config/systemd/user/" https://raw.githubusercontent.com/dnut/clipboard-sync/master/clipboard-sync.service, download systemd service]
+  - [systemctl --user enable --now clipboard-sync, enable systemd service]
+

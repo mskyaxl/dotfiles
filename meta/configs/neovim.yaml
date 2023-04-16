@@ -1,11 +1,23 @@
-- link:
-    ~/.vimrc: vim/vimrc
-    ~/.config/nvim/init.vim: neovim/init.vim
+- include:
+    path: 'meta/configs/common.yaml'
+    isolated: False
 
-- sudo :
-  - aptget: [neovim, nodejs, ruby-dev, python-is-python3, python3-pip, ack]
-  - shell: [gem install neovim]
-  - shell: [npm install -g neovim]
+- link:
+    ~/.config/nvim/init.lua: neovim/init.lua
+    ~/.config/nvim/lua: neovim/lua
+
+- sudo:
+  - aptget: 
+     neovim:
+        ppa_source: ppa:neovim-ppa/unstable
+        upgrade: true 
+  - aptget: [python-is-python3, python3-pip, ack]
+  # install needed packages to build matveyt/neoclip
+  - aptget: [libluajit-5.1-dev, extra-cmake-modules, meson]
+
 - shell:
   - [pip install pynvim && python3 -m pip install --upgrade pynvim]
-  - [nvim +PlugInstall 4 +qall, Installing vim plugins]
+  - [nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync']
+
+- cargo:
+  - tree-sitter-cli

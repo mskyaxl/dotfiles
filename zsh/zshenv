@@ -1,0 +1,6 @@
+# .nologin is a common file used by both zsh and bash
+if [ -f ~/.config/dotfiles/nologin ]; then
+    . ~/.config/dotfiles/nologin
+fi
+
+

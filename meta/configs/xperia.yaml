@@ -1,5 +1,9 @@
+- include:
+    path: 'meta/configs/common.yaml'
+    isolated: False
+
 - link:
-    ~/.env/xperia_env: xperia/xperia_env
+    ~/.config/dotfiles/nologin_env/xperia_env: xperia/xperia_env
 
 - create:
   - ~/bin

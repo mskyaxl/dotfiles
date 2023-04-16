@@ -1,4 +1,5 @@
 - sudo :
-  - aptget: [clangd-12]
+  - aptget: [clangd-14, clang-format-14]
   - shell:
-    - [update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100, set clangd-12 as default]
+    - [update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-14 100, set clangd-14 as default]
+    - [update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 100, set clang-format-14 as default]

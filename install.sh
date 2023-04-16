@@ -2,12 +2,7 @@
 
 set -e
 
-BASE_CONFIG="base"
-CONFIG_SUFFIX=".yaml"
-
 META_DIR="meta"
-CONFIG_DIR="configs"
-PROFILES_DIR="profiles"
 
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
@@ -16,27 +11,24 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 APT_GET_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot_plugin_aptget/aptget.py"
 SUDO_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-sudo/sudo.py"
+RUST_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-rust/rust.py"
+INCLUDE_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-include/include.py"
+CONDITIONAL_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-conditional/conditional.py"
+
 
 cd "${BASE_DIR}"
-git submodule update --init --recursive
 
 for config in ${@}; do
-    # create temporary file
-    configFile="$(mktemp)"
-    suffix="-sudo"
-    echo -e "$(<"${BASE_DIR}/${META_DIR}/${BASE_CONFIG}${CONFIG_SUFFIX}")\n$(<"${BASE_DIR}/${META_DIR}/${CONFIG_DIR}/${config%"$suffix"}${CONFIG_SUFFIX}")" > "$configFile"
-
     cmd=("${BASE_DIR}/${META_DIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" \
          -d "${BASE_DIR}" \
          -p "${APT_GET_PLUGIN}" \
          -p "${SUDO_PLUGIN}" \
-         -c "$configFile")
-
+         -p "${RUST_PLUGIN}" \
+         -p "${INCLUDE_PLUGIN}" \
+         -p "${CONDITIONAL_PLUGIN}" \
+         -c "$config")
     "${cmd[@]}"
-    rm -f "$configFile"
 done
-
-cd "${BASE_DIR}"
 
 echo "Restart your terminal..."
 

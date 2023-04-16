@@ -1,3 +1,9 @@
+- defaults:
+   include:
+    isolated: false
+
+- include: 'meta/configs/common.yaml'
+
 - link:
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
