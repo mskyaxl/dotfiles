@@ -37,3 +37,9 @@
 [submodule "meta/dotbot_plugins/dotbot-rust"]
 	path = meta/dotbot_plugins/dotbot-rust
 	url = https://github.com/alexcormier/dotbot-rust.git
+[submodule "meta/dotbot_plugins/dotbot-conditional"]
+	path = meta/dotbot_plugins/dotbot-conditional
+	url = https://gitlab.com/gnfzdz/dotbot-conditional.git
+[submodule "meta/dotbot_plugins/dotbot-include"]
+	path = meta/dotbot_plugins/dotbot-include
+	url = https://gitlab.com/gnfzdz/dotbot-include.git
