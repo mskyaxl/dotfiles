@@ -1,3 +1,7 @@
+- include:
+    path: 'meta/configs/common.yaml'
+    isolated: False
+
 - link:
     ~/.config/dotfiles/nologin_env/rust_env: rust/rust_env
 
