@@ -154,7 +154,7 @@ endif
 " setting. We also refresh the statusline colors to reflect the new mode.
 function! ChangeBackground()
   execute "ToggleBG"
-  colorscheme NeoSolarized
+  colorscheme gruvbox
   try
     execute "AirlineRefresh"
   catch
@@ -166,7 +166,13 @@ endfunction
 "call ChangeBackground()
  " change the color scheme if we receive a SigUSR1
 " autocmd Signal SIGUSR1 ToggleBG
-autocmd Signal SIGUSR1 call ChangeBackground()
+if has('nvim')
+  autocmd Signal SIGUSR1 call ChangeBackground()
+else
+  autocmd  SigUSR1 * call ChangeBackground() | redraw
+endif
+
+"autocmd  SigUSR1 * call ChangeBackground()
 
 let g:airline#extensions#tabline#enabled = 1
 

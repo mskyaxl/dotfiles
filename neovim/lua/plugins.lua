@@ -11,6 +11,17 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+-- initialize the colorscheme for the first run
+-- hacky way of detecting the current theme 
+-- todo-find a DE independent way of getting this
+-- see https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+function setBackground()
+  if string.match(vim.fn.system({'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme'}),'.*dark') then
+    vim.o.background='dark'
+  else
+    vim.o.background='light'
+  end
+end
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -73,13 +84,26 @@ return require('packer').startup(function(use)
            {'overcache/NeoSolarized'}
        },
        config = function() 
-         -- Hack to avoid first calling togglebg#map on <F5>
-         vim.g.background=dark
-         --vim.colorscheme = "gruvbox"
+         setBackground()
          vim.cmd [[colorscheme gruvbox]]
+         
+         -- Hack to avoid first calling togglebg#map on <F5>
          vim.g.no_plugin_maps = 1
          vim.fn['togglebg#map']("<F6>")
          vim.g.no_plugin_maps = nil
+
+         -- react on SigUSR1 to swith between dark and light mode
+         vim.api.nvim_create_autocmd({"Signal", SigUSR1},{
+         callback = function()
+            setBackground()
+            vim.cmd [[try
+                        execute "AirlineRefresh"
+                      catch
+                      endtry
+                      execute "redraw"
+            ]]
+         end
+         })
        end
   }
   -- colors
