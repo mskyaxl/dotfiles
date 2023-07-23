@@ -11,7 +11,6 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = {80, 120}
 vim.g.loaded_perl_provider = 0 
-
 -- [[ Splits ]]
 --vim.opt.splitright = true            -- bool: Place new window to right of current one
 
@@ -30,7 +29,7 @@ vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
 
 --set tmuxtheme filetype to tmux
-vim.cmd [[autocmd BufRead,BufNewFile *.tmuxtheme set filetype=tmux]]
+vim.filetype.add({ extension = { tmuxtheme = 'tmux'}})
 
 -- TODO replace this with lua
 -- vim.cmd [[
