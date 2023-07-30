@@ -48,10 +48,12 @@ function sync_terminal_theme_mode() {
 
 function main()
 {
+  #it seems that on some systems, color-scheme is set after a delay
+  sleep 0.2
 
-  prefered=$(dconf read /org/gnome/desktop/interface/color-scheme)
+  prefered=$(gsettings get org.gnome.desktop.interface color-scheme)
+
   [[ $prefered == "'prefer-dark'" ]] && change_to="dark" || change_to="light"
-
   sync_terminal_theme_mode $change_to
 
 }
