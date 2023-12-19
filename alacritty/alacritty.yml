@@ -113,22 +113,22 @@ env:
 font:
   ## Normal (roman) font face
   normal:
-    family: Hack Nerd Font Mono
+    family: HackNerdFontMono
     style: Regular
 
   ## Bold font face
   bold:
-    family: Hack Nerd Font Mono
+    family: HackNerdFontMono
     style: Bold
 
   ## Italic font face
   italic:
-    family: Hack Nerd Font Mono
+    family: HackNerdFontMono
     style: Italic
 
   ## Bold italic font face
   bold_italic:
-    family: Hack Nerd Font Mono
+    family: HackNerdFontMono
     style: Bold Italic
 
   ## Point size
