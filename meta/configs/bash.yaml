@@ -16,6 +16,6 @@
   - ['basic/install-ripgrep-all.sh' , install riptrep-all]
 
 - sudo:
-  - aptget: [mc, cmake, p7zip-full, ripgrep, fzf, tree, pandoc, poppler-utils, ffmpeg, ack]
+  - aptget: [wget, curl, mc, cmake, p7zip-full, ripgrep, fzf, tree, pandoc, poppler-utils, ffmpeg, ack]
 
 
