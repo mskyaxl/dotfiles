@@ -87,8 +87,7 @@ return require('packer').startup(function(use)
 
          -- react on SigUSR1 to swith between dark and light mode
          vim.api.nvim_create_autocmd({"Signal", SigUSR1},{
-         callback = function()
-            setBackground()
+         callback = function() setBackground()
             vim.cmd [[try
                         execute "AirlineRefresh"
                       catch
@@ -141,7 +140,7 @@ return require('packer').startup(function(use)
 
   -- telescope
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim',
      requires = {
        {'nvim-lua/plenary.nvim'}, 
        {"nvim-telescope/telescope-live-grep-args.nvim" }
@@ -155,13 +154,13 @@ return require('packer').startup(function(use)
      run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  -- use 'hrsh7th/cmp-nvim-lsp'
+  -- use 'hrsh7th/cmp-buffer'
+  -- use 'hrsh7th/cmp-path'
+  -- use 'hrsh7th/cmp-cmdline'
+  -- use 'hrsh7th/nvim-cmp'
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip-integ'
   -- Configurations for Nvim LSP
   use 'neovim/nvim-lspconfig'
   use {
