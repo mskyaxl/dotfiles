@@ -31,9 +31,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- old config
 
 
-
---vim.g.mapleader = " "
-
 -- Find files using Telescope command-line sugar.
 --local builtin = require('telescope.builtin')
 --vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -53,11 +50,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', {})
 
 -- NvimTree
-vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', {})
+vim.keymap.set('n', '<leader>T', ':NvimTreeFindFileToggle<CR>', { desc = "Open nvim-[T]ree" })
 
 --fix clipboard
---vim.keymap.set('','<Leader>Y', '"*y', {})
---vim.keymap.set('','<Leader>P', '"*p', {})
---vim.keymap.set('','<Leader>y', '"+y', {})
---vim.keymap.set('','<Leader>p', '"+p', {})
+vim.keymap.set('','<leader>Y', '"*y', { desc = "[Y]ank to *"})
+vim.keymap.set('','<leader>P', '"*p', { desc = "[P]aste to *"})
+vim.keymap.set('','<leader>y', '"+y', { desc = "[y]ank like to +"})
+vim.keymap.set('','<leader>p', '"+p', { desc = "[p]aste like to +"})
 
