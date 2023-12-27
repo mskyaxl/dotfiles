@@ -1,3 +1,15 @@
+-- initialize the colorscheme for the first run
+-- hacky way of detecting the current theme 
+-- todo-find a DE independent way of getting this
+-- see https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+local function setBackground()
+  if string.match(vim.fn.system({'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme'}),'.*dark') then
+    vim.o.background='dark'
+  else
+    vim.o.background='light'
+  end
+end
+
 -- [[ Configure plugins ]]
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
@@ -8,12 +20,26 @@ require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-
+  {
+    'tpope/vim-fugitive',
+    dependencies = {
+       'tommcdo/vim-fubitive',
+       'tpope/vim-rhubarb',
+    },
+    config = function()
+       local status, lfs = pcall(require, "fubitive_cfg")
+       if(status) then
+          print(lfs) --lfs exists, so use it.
+       end
+    end
+  },
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
+  --  [tmux]
+  'tmux-plugins/vim-tmux-focus-events',
+  'christoomey/vim-tmux-navigator',
+  'christoomey/vim-tmux-runner',
+  'tmux-plugins/vim-tmux',
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -49,8 +75,16 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
     },
   },
-
-  -- Useful plugin to show you pending keybinds.
+  -- tree
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies ={
+      'nvim-tree/nvim-web-devicons' -- optional, for file icons
+    },
+  },
+   -- colors
+  'ap/vim-css-color',
+ -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -59,7 +93,7 @@ require('lazy').setup({
       -- See `:help gitsigns.txt`
       signs = {
         add = { text = '+' },
-        change = { text = '~' },
+
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
@@ -126,15 +160,43 @@ require('lazy').setup({
       end,
     },
   },
-
+  -- [themes]
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'mikker/vim-togglebg',
     priority = 1000,
+    dependencies = {
+      'ellisonleao/gruvbox.nvim',
+      --'gruvbox-community/gruvbox',
+     -- 'overcache/NeoSolarized',
+    },
     config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+         setBackground()
+         vim.cmd.colorscheme 'gruvbox'
+
+         -- Hack to avoid first calling togglebg#map on <F5>
+         vim.g.no_plugin_maps = 1
+         vim.fn['togglebg#map']("<F6>")
+         vim.g.no_plugin_maps = nil
+
+         -- react on SigUSR1 to swith between dark and light mode
+         vim.api.nvim_create_autocmd({"Signal"},{
+         callback = function()
+            setBackground()
+            vim.cmd.redraw()
+            require('lualine').setup()
+         end
+         })
+       end
   },
+
+  -- {
+  --   -- Theme inspired by Atom
+  --   'navarasu/onedark.nvim',
+  --   --priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'onedark'
+  --   end,
+  -- },
 
   {
     -- Set lualine as statusline
@@ -142,10 +204,15 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'onedark',
+        icons_enabled = true,
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
+        refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
+          statusline = 1000,         -- The refresh option sets minimum time that lualine tries
+          tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
+          winbar = 1000
+        },
       },
     },
   },
@@ -168,6 +235,7 @@ require('lazy').setup({
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-live-grep-args.nvim',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
@@ -181,6 +249,9 @@ require('lazy').setup({
         end,
       },
     },
+    config = function()
+        require("telescope").load_extension("live_grep_args")
+     end
   },
 
   {

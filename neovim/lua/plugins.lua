@@ -15,13 +15,13 @@ local packer_bootstrap = ensure_packer()
 -- hacky way of detecting the current theme 
 -- todo-find a DE independent way of getting this
 -- see https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
-function setBackground()
-  if string.match(vim.fn.system({'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme'}),'.*dark') then
-    vim.o.background='dark'
-  else
-    vim.o.background='light'
-  end
-end
+-- function setBackground()
+--   if string.match(vim.fn.system({'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme'}),'.*dark') then
+--     vim.o.background='dark'
+--   else
+--     vim.o.background='light'
+--   end
+-- end
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
   --vim airline
   use {
     'vim-airline/vim-airline',
-    requires = { 
+    requires = {
       {'vim-airline/vim-airline-themes'},
       {'bling/vim-bufferline'}
     },
@@ -48,58 +48,58 @@ return require('packer').startup(function(use)
        end
   }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use {'tpope/vim-fugitive',
-        requires = { 
-            {'tommcdo/vim-fubitive'},
-            {'tpope/vim-rhubarb'}
-        },
-        config = function()
-          local status, lfs = pcall(require, "fubitive_cfg")
-          if(status) then
-              --lfs exists, so use it.
-          end
-        end
-  }
+  -- use {'tpope/vim-fugitive',
+  --       requires = { 
+  --           {'tommcdo/vim-fubitive'},
+  --           {'tpope/vim-rhubarb'}
+  --       },
+  --       config = function()
+  --         local status, lfs = pcall(require, "fubitive_cfg")
+  --         if(status) then
+  --             --lfs exists, so use it.
+  --         end
+  --       end
+  -- }
   use 'jreybert/vimagit'
 
   use 'duggiefresh/vim-easydir'
   --  [tmux]
-  use 'tmux-plugins/vim-tmux-focus-events'
-  use 'christoomey/vim-tmux-navigator'
-  use 'christoomey/vim-tmux-runner'
-  use 'tmux-plugins/vim-tmux'
+  -- use 'tmux-plugins/vim-tmux-focus-events'
+  -- use 'christoomey/vim-tmux-navigator'
+  -- use 'christoomey/vim-tmux-runner'
+  -- use 'tmux-plugins/vim-tmd'
   use 'kshenoy/vim-signature'
   use 'terrortylor/nvim-comment'
   -- [themes]
-  use {'mikker/vim-togglebg',
-       requires = {
-           {'gruvbox-community/gruvbox'},
-           {'overcache/NeoSolarized'}
-       },
-       config = function() 
-         setBackground()
-         vim.cmd [[colorscheme gruvbox]]
-         
-         -- Hack to avoid first calling togglebg#map on <F5>
-         vim.g.no_plugin_maps = 1
-         vim.fn['togglebg#map']("<F6>")
-         vim.g.no_plugin_maps = nil
-
-         -- react on SigUSR1 to swith between dark and light mode
-         vim.api.nvim_create_autocmd({"Signal", SigUSR1},{
-         callback = function() setBackground()
-            vim.cmd [[try
-                        execute "AirlineRefresh"
-                      catch
-                      endtry
-                      execute "redraw"
-            ]]
-         end
-         })
-       end
-  }
+  -- use {'mikker/vim-togglebg',
+  --      requires = {
+  --          {'gruvbox-community/gruvbox'},
+  --          {'overcache/NeoSolarized'}
+  --      },
+  --      config = function() 
+  --        setBackground()
+  --        vim.cmd [[colorscheme gruvbox]]
+  --        
+  --        -- Hack to avoid first calling togglebg#map on <F5>
+  --        vim.g.no_plugin_maps = 1
+  --        vim.fn['togglebg#map']("<F6>")
+  --        vim.g.no_plugin_maps = nil
+  --
+  --        -- react on SigUSR1 to swith between dark and light mode
+  --        vim.api.nvim_create_autocmd({"Signal", SigUSR1},{
+  --        callback = function() setBackground()
+  --           vim.cmd [[try
+  --                       execute "AirlineRefresh"
+  --                     catch
+  --                     endtry
+  --                     execute "redraw"
+  --           ]]
+  --        end
+  --        })
+  --      end
+  -- }
   -- colors
-  use 'ap/vim-css-color'
+  -- use 'ap/vim-css-color'
   -- markdown
   use { 'plasticboy/vim-markdown', ft = {'markdown'}}
   use { 'godlygeek/tabular', ft = {'markdown'}}
@@ -110,29 +110,29 @@ return require('packer').startup(function(use)
           -- asciidoc
           -- Fold sections, default `0`.
           vim.g.asciidoctor_folding = 1
-          
+
           -- Fold options, default `0`.
           vim.g.asciidoctor_fold_options = 1
           -- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
           -- See limitations in end of the README
           vim.g.asciidoctor_syntax_conceal = 1
-          
+
           -- Highlight indented text, default `1`.
           vim.g.asciidoctor_syntax_indented = 0
-          
+
           -- List of filetypes to highlight, default `[]`
           vim.g.asciidoctor_fenced_languages = {'python', 'c', 'javascript'}
         end
     }
 
   -- tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
+  -- use {
+  --   'nvim-tree/nvim-tree.lua',
+  --   requires = {
+  --     'nvim-tree/nvim-web-devicons', -- optional, for file icons
+  --   },
+  --   tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  -- }
 
   -- session management
   use 'tpope/vim-obsession'
