@@ -1,12 +1,16 @@
 -- initialize the colorscheme for the first run
--- hacky way of detecting the current theme 
+-- hacky way of detecting the current theme
 -- todo-find a DE independent way of getting this
 -- see https://arslan.io/2021/02/15/automatic-dark-mode-for-terminal-applications/
+local function redrawLine()
+  require('lualine').setup()
+end
+
 local function setBackground()
-  if string.match(vim.fn.system({'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme'}),'.*dark') then
-    vim.o.background='dark'
+  if string.match(vim.fn.system({ 'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme' }), '.*dark') then
+    vim.o.background = 'dark'
   else
-    vim.o.background='light'
+    vim.o.background = 'light'
   end
 end
 
@@ -18,21 +22,9 @@ end
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
+  -- TODO: try this plugin 
+  -- use {'ojroques/nvim-osc52'}
 
-  -- Git related plugins
-  {
-    'tpope/vim-fugitive',
-    dependencies = {
-       'tommcdo/vim-fubitive',
-       'tpope/vim-rhubarb',
-    },
-    config = function()
-       local status, lfs = pcall(require, "fubitive_cfg")
-       if(status) then
-          print(lfs) --lfs exists, so use it.
-       end
-    end
-  },
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   --  [tmux]
@@ -40,6 +32,7 @@ require('lazy').setup({
   'christoomey/vim-tmux-navigator',
   'christoomey/vim-tmux-runner',
   'tmux-plugins/vim-tmux',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -49,15 +42,39 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
   },
+  -- TODO prepare the dev env for C++
+  -- check if clangd_extensions can be configured to work with mason
+
+  -- use 'hrsh7th/cmp-nvim-lsp'
+  -- use 'hrsh7th/cmp-buffer'
+  -- use 'hrsh7th/cmp-path'
+  -- use 'hrsh7th/cmp-cmdline'
+  -- use 'hrsh7th/nvim-cmp'
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip-integ'
+  -- Configurations for Nvim LSP
+  -- use 'neovim/nvim-lspconfig'
+  -- use {
+  --       'nvim-treesitter/nvim-treesitter',
+  --       run = function()
+  --           local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+  --           ts_update()
+  --       end,
+  -- }
+  -- 'p00f/clangd_extensions.nvim',
+  -- { 'rhysd/vim-clang-format',
+  --     build = function()
+  --       vim.g['clang_format#detect_style_file'] = 1
+  --     end
+  -- },
 
   {
     -- Autocompletion
@@ -78,14 +95,31 @@ require('lazy').setup({
   -- tree
   {
     'nvim-tree/nvim-tree.lua',
-    dependencies ={
+    dependencies = {
       'nvim-tree/nvim-web-devicons' -- optional, for file icons
     },
   },
-   -- colors
+  -- colors
   'ap/vim-css-color',
- -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  -- Useful plugin to show you pending keybinds.
+  { 'folke/which-key.nvim',  opts = {} },
+   -- Git related plugins
+  {
+    'tpope/vim-fugitive',
+    dependencies = {
+      'tommcdo/vim-fubitive',
+      'tpope/vim-rhubarb',
+    },
+    config = function()
+      --this is to include selfhosed bitbucket instances that are not worth 
+      --shareing in a public configuration. if the file will not be present 
+      --we'll just ignore it
+      local status, lfs = pcall(require, "fubitive_cfg")
+      if (status) then
+        print(lfs)   --lfs exists, so use it.
+      end
+    end
+  },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -167,37 +201,27 @@ require('lazy').setup({
     dependencies = {
       'ellisonleao/gruvbox.nvim',
       --'gruvbox-community/gruvbox',
-     -- 'overcache/NeoSolarized',
+      -- 'overcache/NeoSolarized',
     },
     config = function()
-         setBackground()
-         vim.cmd.colorscheme 'gruvbox'
+      setBackground()
+      vim.cmd.colorscheme 'gruvbox'
 
-         -- Hack to avoid first calling togglebg#map on <F5>
-         vim.g.no_plugin_maps = 1
-         vim.fn['togglebg#map']("<F6>")
-         vim.g.no_plugin_maps = nil
+      -- Hack to avoid first calling togglebg#map on <F5>
+      vim.g.no_plugin_maps = 1
+      vim.fn['togglebg#map']("<F6>")
+      vim.g.no_plugin_maps = nil
 
-         -- react on SigUSR1 to swith between dark and light mode
-         vim.api.nvim_create_autocmd({"Signal"},{
-         callback = function()
-            setBackground()
-            vim.cmd.redraw()
-            require('lualine').setup()
-         end
-         })
-       end
+      -- react on SigUSR1 to swith between dark and light mode
+      vim.api.nvim_create_autocmd({ "Signal" }, {
+        callback = function()
+          setBackground()
+          vim.cmd.redraw()
+          redrawLine()
+        end
+      })
+    end
   },
-
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   --priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -208,11 +232,6 @@ require('lazy').setup({
         theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
-        refresh = {                  -- sets how often lualine should refresh it's contents (in ms)
-          statusline = 1000,         -- The refresh option sets minimum time that lualine tries
-          tabline = 1000,            -- to maintain between refresh. It's not guarantied if situation
-          winbar = 1000
-        },
       },
     },
   },
@@ -225,9 +244,18 @@ require('lazy').setup({
     main = 'ibl',
     opts = {},
   },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
+  -- find in files that uses the quick list window 
+  { 'dyng/ctrlsf.vim',
+       config = function()
+         -- exclude .git and .gitignore from file search in ctrlp
+         vim.g.ctrlp_user_command = {'.git', 'cd %s && git ls-files -co --exclude-standard'}
+         vim.g.ctrlp_show_hidden = 1
+         vim.g.ctrlsf_default_view_mode = 'compact'
+       end
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -250,8 +278,8 @@ require('lazy').setup({
       },
     },
     config = function()
-        require("telescope").load_extension("live_grep_args")
-     end
+      require("telescope").load_extension("live_grep_args")
+    end
   },
 
   {
@@ -262,20 +290,43 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  -- markdown
+  { 'plasticboy/vim-markdown', ft = {'markdown'}},
+  { 'godlygeek/tabular', ft = {'markdown'}},
+  -- asciidoc 
+  { 'habamax/vim-asciidoctor',
+        ft = {'ASCII', 'text', 'asciidoc', 'adoc', 'asciidoctor'},
+        config = function()
+          -- asciidoc
+          -- Fold sections, default `0`.
+          vim.g.asciidoctor_folding = 1
 
+          -- Fold options, default `0`.
+          vim.g.asciidoctor_fold_options = 1
+          -- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
+          -- See limitations in end of the README
+          vim.g.asciidoctor_syntax_conceal = 1
+
+          -- Highlight indented text, default `1`.
+          vim.g.asciidoctor_syntax_indented = 0
+
+          -- List of filetypes to highlight, default `[]`
+          vim.g.asciidoctor_fenced_languages = {'python', 'c', 'javascript'}
+        end
+  },
+  -- session management
+  {
+    "dhruvasagar/vim-prosession",
+    dependencies = {
+      "tpope/vim-obsession",
+    },
+  }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
-}, {})
+  }, {})
 
 -- vim: ts=2 sts=2 sw=2 et

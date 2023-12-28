@@ -25,29 +25,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- vim: ts=2 sts=2 sw=2 et
-
-
--- old config
-
-
--- Find files using Telescope command-line sugar.
---local builtin = require('telescope.builtin')
---vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
---vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
---vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
---local extensions = require('telescope').extensions
---vim.keymap.set('n', '<leader>fg', extensions.live_grep_args.live_grep_args, {})
 -- Disable arrow keys 
---vim.keymap.set('', '<Up>',    '<Nop>', {})
---vim.keymap.set('', '<Down>',  '<Nop>', {})
---vim.keymap.set('', '<Left>' , '<Nop>', {})
---vim.keymap.set('', '<Right>', '<Nop>', {})
+vim.keymap.set('', '<Up>',    '<Nop>', {})
+vim.keymap.set('', '<Down>',  '<Nop>', {})
+vim.keymap.set('', '<Left>' , '<Nop>', {})
+vim.keymap.set('', '<Right>', '<Nop>', {})
 
 -- CtrlSF
---vim.api.nvim_set_keymap('n', '<C-F>f', '<Plug>CtrlSFPrompt', {})
---vim.api.nvim_set_keymap('n', '<C-F>n', '<Plug>CtrlSFCwordPath', {})
---vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', {})
+vim.api.nvim_set_keymap('n', '<C-F>f', '<Plug>CtrlSFPrompt', { desc = "Open the [F]ind in files CtrlSFPrompt"})
+vim.api.nvim_set_keymap('n', '<C-F>w', '<Plug>CtrlSFCwordPath', {desc = "Find in files for the [w]ord under cursor using CtrlSF"})
+vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', { desc = "Finds in files the last [p] patter found in vim"})
 
 -- NvimTree
 vim.keymap.set('n', '<leader>T', ':NvimTreeFindFileToggle<CR>', { desc = "Open nvim-[T]ree" })

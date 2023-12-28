@@ -48,6 +48,7 @@ vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- set termguicolors to enable highlight groups
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
@@ -58,7 +59,6 @@ vim.opt.splitright = true            -- bool: Place new window to right of curre
 
 -- vim: ts=2 sts=2 sw=2 et
 
--- set termguicolors to enable highlight groups
 
 
 
