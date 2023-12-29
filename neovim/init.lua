@@ -1,35 +1,43 @@
---vim.cmd [[set clipboard^=unnamed,unnamedplus]]
---vim.opt.clipboard:prepend('unnamed,unnamedplus')
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-vim.opt.relativenumber = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 0
-vim.opt.expandtab = true
-vim.opt.swapfile = false
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-vim.opt.colorcolumn = {80, 120}
-vim.g.loaded_perl_provider = 0 
--- [[ Splits ]]
---vim.opt.splitright = true            -- bool: Place new window to right of current one
+-- [[ Install `lazy.nvim` plugin manager ]]
+require 'lazy-bootstrap'
 
+-- [[ Configure plugins ]]
+require 'lazy-plugins'
 
-require("plugins")
-require("keymaps")
-require("nvimtree")
-require("lsp")
-require("clangd_lsp")
-require("treesitter")
+-- [[ Setting options ]]
+require 'options'
 
+-- [[ Basic Keymaps ]]
+require 'keymaps'
 
-require('nvim_comment').setup()
+-- [[ Configure Telescope ]]
+-- (fuzzy finder)
+require 'telescope-setup'
 
-vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
-vim.o.undofile = true
+-- [[ Configure Treesitter ]]
+-- (syntax parser for highlighting)
+require 'treesitter-setup'
 
---set tmuxtheme filetype to tmux
-vim.filetype.add({ extension = { tmuxtheme = 'tmux'}})
+-- [[ Configure LSP ]]
+-- (Language Server Protocol)
+require 'lsp-setup'
+
+-- [[ Configure nvim-cmp ]]
+-- (completion)
+require 'cmp-setup'
+
+require 'nvimtree-setup'
+
+require 'gitsigns-setup'
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
 
 -- TODO replace this with lua
 -- vim.cmd [[
