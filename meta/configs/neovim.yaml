@@ -5,6 +5,7 @@
 - link:
     ~/.config/nvim/init.lua: neovim/init.lua
     ~/.config/nvim/lua: neovim/lua
+    ~/.config/nvim/lazy-lock.json: neovim/lazy-lock.json
 
 - sudo:
   - aptget: 
@@ -17,7 +18,7 @@
 
 - shell:
   - [pip install pynvim && python3 -m pip install --upgrade pynvim]
-  - [nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync']
+  - [nvim --headless "+Lazy! sync" +qa]
 
 - cargo:
   - tree-sitter-cli
