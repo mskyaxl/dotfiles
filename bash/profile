@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-#PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="/var/lib/flatpak/exports/bin:$HOME/bin:$HOME/.local/bin:$PATH"
 
 # .login is a common file used by both zsh and bash
 if [ -f ~/.config/dotfiles/login ]; then

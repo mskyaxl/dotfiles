@@ -11,6 +11,10 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/.oh-my-zsh
 export PYTHONDONTWRITEBYTECODE=1
 
+if command -v io.neovim.nvim &>/dev/null
+then
+   alias nvim='io.neovim.nvim'
+fi
 if command -v nvim &>/dev/null 
 then
   alias vim='nvim'
@@ -137,4 +141,4 @@ export LIBGL_ALWAYS_INDIRECT=1
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
