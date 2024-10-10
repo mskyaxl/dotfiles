@@ -11,10 +11,10 @@ local function redrawLine()
 end
 
 local function setBackground()
-  if string.match(vim.fn.system({ 'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme' }), '.*dark') then
-    vim.o.background = 'dark'
-  else
+  if not string.match(vim.fn.system({ 'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme' }), '.*dark') then
     vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
   end
 end
 
