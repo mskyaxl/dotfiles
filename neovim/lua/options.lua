@@ -4,6 +4,8 @@
 
 -- Set highlight on search
 vim.o.hlsearch = false
+-- keep the cursor line highlighted
+vim.o.cursorline = true
 
 -- Make line numbers default
 --vim.wo.number = true
@@ -53,7 +55,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 vim.opt.colorcolumn = {80, 120}
-vim.g.loaded_perl_provider = 0 
+vim.g.loaded_perl_provider = 0
 -- [[ Splits ]]
 vim.opt.splitright = true            -- bool: Place new window to right of current one
 
