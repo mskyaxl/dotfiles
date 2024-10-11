@@ -37,7 +37,7 @@ vim.api.nvim_set_keymap('n', '<C-F>w', '<Plug>CtrlSFCwordPath', {desc = "Find in
 vim.api.nvim_set_keymap('n', '<C-F>p', '<Plug>CtrlSFPwordPath', { desc = "Finds in files the last [p] patter found in vim"})
 
 -- NvimTree
-vim.keymap.set('n', '<leader>T', ':NvimTreeFindFileToggle<CR>', { desc = "Open nvim-[T]ree" })
+vim.keymap.set('n', '<leader>T', ':Neotree toggle<CR>', { desc = "Open nvim-neo[T]ree" })
 
 --fix clipboard
 vim.keymap.set('','<leader>Y', '"*y', { desc = "[Y]ank to *"})

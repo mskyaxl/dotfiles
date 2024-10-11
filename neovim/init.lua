@@ -32,7 +32,7 @@ require 'lsp-setup'
 -- (completion)
 require 'cmp-setup'
 
-require 'nvimtree-setup'
+require 'neo-tree-setup'
 
 require 'gitsigns-setup'
 
