@@ -21,6 +21,10 @@ then
     exec /usr/bin/zsh -l # -l: login shell again
 fi
 
+if [ -f ~/.config/dotfiles/login ]; then
+    . ~/.config/dotfiles/login
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
