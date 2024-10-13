@@ -2,6 +2,9 @@
     path: 'meta/configs/common.yaml'
     isolated: False
 
+- create:
+  - ~/.config/dotfiles/completions
+
 - link:
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
