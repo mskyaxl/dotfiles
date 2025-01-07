@@ -1,0 +1,28 @@
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_hard_dark.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
+[font.bold]
+family = "HackNerdFontMono"
+style = "Bold"
+
+[font.bold_italic]
+family = "HackNerdFontMono"
+style = "Bold Italic"
+
+[font.italic]
+family = "HackNerdFontMono"
+style = "Italic"
+
+[font.normal]
+family = "HackNerdFontMono"
+style = "Regular"
+
+[keyboard]
