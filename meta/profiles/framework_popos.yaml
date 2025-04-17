@@ -1,8 +1,0 @@
-# Configure defaults
-- defaults:
-    include:
-     isolated: True
-
-# When only provided a string, that will be treated as the path of the file to include
-- include: 'meta/configs/fingerprint.yaml'
-
