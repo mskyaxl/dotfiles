@@ -1,9 +1,14 @@
-- sudo:
-  - aptget:
-      appimagelauncher:
-        ppa_source: ppa:appimagelauncher-team/stable
-        upgrade: true
-      dconf-editor:
-        upgrade: true
-      menulibre:
-        upgrade: true
+- ifubuntu:
+  - sudo:
+    - aptget:
+        appimagelauncher:
+          ppa_source: ppa:appimagelauncher-team/stable
+          upgrade: true
+        dconf-editor:
+          upgrade: true
+        menulibre:
+          upgrade: true
+- ifarch:
+  - paru:
+    - appimagelauncher
+
