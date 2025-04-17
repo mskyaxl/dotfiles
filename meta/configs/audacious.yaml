@@ -1,5 +1,10 @@
-- sudo:
-  - aptget:
-      audacious:
-        ppa_source: ppa:ubuntuhandbook1/apps 
-        upgrade: true
+- ifubuntu:
+  - sudo:
+    - aptget:
+        audacious:
+          ppa_source: ppa:ubuntuhandbook1/apps 
+          upgrade: true
+- ifarch:
+  - paru:
+    - audacious
+    - audacious-plugins
