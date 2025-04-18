@@ -1,5 +1,9 @@
-- sudo:
-  - aptget:
-      lutris:
-        ppa_source: ppa:lutris-team/lutris
-        upgrade: true
+- ifubuntu:
+  - sudo:
+    - aptget:
+        lutris:
+          ppa_source: ppa:lutris-team/lutris
+          upgrade: true
+- ifarch:
+  - paru:
+    - lutris
