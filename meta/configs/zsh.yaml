@@ -9,8 +9,13 @@
     ~/.zshrc: zsh/zshrc
     ~/.zshenv: zsh/zshenv
 
-- sudo:
-  - aptget: [zsh]
+- ifubuntu:
+  - sudo:
+    - aptget: [zsh]
+
+- ifarch:
+  - paru:
+    - zsh
 
 - shell:
   - 
