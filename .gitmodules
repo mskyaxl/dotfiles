@@ -13,9 +13,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "aptget/dotbot_plugin_aptget"]
-	path = meta/dotbot_plugins/dotbot_plugin_aptget
-	url = https://github.com/dein0s/dotbot_plugin_aptget.git
 [submodule "zsh/plugins/zsh-history-substring-search"]
 	path = zsh/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
@@ -30,7 +27,7 @@
 	url = https://github.com/mskyaxl/zsh-pwd-tmux.git
 [submodule "meta/dotbot_plugins/dotbot-sudo"]
 	path = meta/dotbot_plugins/dotbot-sudo
-	url = https://github.com/DrDynamic/dotbot-sudo.git
+	url = https://github.com/mskyaxl/dotbot-sudo.git
 [submodule "zsh/plugins/zsh-fzf-history-search"]
 	path = zsh/plugins/zsh-fzf-history-search
 	url = https://github.com/joshskidmore/zsh-fzf-history-search
@@ -46,3 +43,12 @@
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "meta/dotbot_plugins/dotbot-paru"]
+	path = meta/dotbot_plugins/dotbot-paru
+	url = https://github.com/raydelrosario/dotbot-paru.git
+[submodule "meta/dotbot_plugins/dotbot-ifplatform"]
+	path = meta/dotbot_plugins/dotbot-ifplatform
+	url = https://github.com/mskyaxl/dotbot-ifplatform.git
+[submodule "meta/dotbot_plugins/dotbot-aptget"]
+	path = meta/dotbot_plugins/dotbot-aptget
+	url = https://github.com/mskyaxl/dotbot-aptget.git

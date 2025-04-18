@@ -119,4 +119,5 @@ _EOF_
 
 chmod a+r /etc/udev/rules.d/51-android.rules
 udevadm control --reload-rules
-adduser $1 plugdev
+groupadd -f plugdev
+usermod -aG plugdev $1

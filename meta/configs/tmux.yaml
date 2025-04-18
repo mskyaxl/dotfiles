@@ -8,8 +8,12 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.tmux/plugins/tpm: tmux/plugins/tpm
 
-- sudo :
-  - aptget: [tmux]
+- ifubuntu:
+  - sudo :
+    - aptget: [tmux]
 
+- ifarch:
+  - paru:
+    - tmux
 - shell:
   - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]

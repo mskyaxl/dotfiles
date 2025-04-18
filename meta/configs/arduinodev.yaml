@@ -1,6 +1,12 @@
-- sudo:
-  - aptget: [arduino, libserialport0, patchelf, avrdude, gcc-avr]
-  - aptget: [libmono-system-windows-forms4.0-cil]
-  - shell: 
-    - ["patchelf --add-needed /usr/lib/x86_64-linux-gnu/libserialport.so.0 /usr/lib/x86_64-linux-gnu/liblistSerialsj.so.1.4.0", workaround for ubuntu]
-    - [usermod -a -G dialout $USER]
+- ifubuntu:
+  - sudo:
+    - aptget: [arduino, libserialport0, patchelf, avrdude, gcc-avr]
+    - aptget: [libmono-system-windows-forms4.0-cil]
+    - shell: 
+      - ["patchelf --add-needed /usr/lib/x86_64-linux-gnu/libserialport.so.0 /usr/lib/x86_64-linux-gnu/liblistSerialsj.so.1.4.0", workaround for ubuntu]
+      - [usermod -a -G dialout $USER]
+- ifarch:
+  - paru:
+    - arduino-ide
+    - avrdude
+    - patchelf

@@ -1,16 +1,22 @@
 - link:
     ~/.config/alacritty: alacritty
 
-- sudo:
-  - aptget:
-      alacritty:
-          ppa_source: ppa:aslatter/ppa 
-          upgrade: true
-  - aptget: [fonts-hack-ttf]
+- ifarch:
+  # - sudo:
+  - paru:
+    - alacritty
+    - nerd-fonts-sf-mono 
 
-- shell:
-  - 
-    command: alacritty/install_hack_nerd_font.sh
-    stdin: true
-    stdout: true
-    description: Install Hack Nerd Font
+- ifubuntu:
+  - sudo:
+    - aptget:
+        alacritty:
+            ppa_source: ppa:aslatter/ppa 
+            upgrade: true
+    - aptget: [fonts-hack-ttf]
+  - shell:
+    - 
+      command: alacritty/install_hack_nerd_font.sh
+      stdin: true
+      stdout: true
+      description: Install Hack Nerd Font
