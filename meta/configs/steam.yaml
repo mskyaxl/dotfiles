@@ -1,2 +1,18 @@
-- sudo:
-  - aptget: [steam:i386 ]
+- ifubuntu:
+  - sudo:
+    - aptget: [steam:i386 ]
+- ifarch:
+  - paru:
+    - steam
+    - steam-native-runtime
+    - lib32-systemd
+    - lib32-amdvlk
+    - xf86-video-amdgpu
+    - lib32-mesa
+    - xdg-desktop-portal
+    - ttf-liberation
+    - ttf-ms-win11-auto
+  - sudo:
+    - shell:
+        - ["sed -i '/^#$$multilib$$/,/^$/s/^#//; /^#Include = \/etc\/pacman.d\/mirrorlist/s/^#//' /etc/pacman.conf","enable arch multilib"]
+
