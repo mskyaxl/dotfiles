@@ -1,6 +1,10 @@
-- sudo:
-  - aptget: [libfprint-2-2, fprintd, libgusb-dev, libsystemd-dev, libpam-fprintd]
-  - shell:
-       - ["systemctl enable fprintd.service"]
-       - ["systemctl start fprintd.service"] 
-       - ["pam-auth-update --enable fprintd"]
+- ifubuntu:
+  - sudo:
+    - aptget: [libfprint-2-2, fprintd, libgusb-dev, libsystemd-dev, libpam-fprintd]
+    - shell:
+         - ["systemctl enable fprintd.service"]
+         - ["systemctl start fprintd.service"] 
+         - ["pam-auth-update --enable fprintd"]
+- ifarch:
+  - paru:
+    - fprintd
