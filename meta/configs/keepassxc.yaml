@@ -1,6 +1,9 @@
-- sudo:
-  - aptget:
-      keepassxc:
-        ppa_source: ppa:phoerious/keepassxc
-        upgrade: true
-
+- ifubuntu:
+  - sudo:
+    - aptget:
+        keepassxc:
+          ppa_source: ppa:phoerious/keepassxc
+          upgrade: true
+- ifarch:
+  - paru:
+    - keepassxc
