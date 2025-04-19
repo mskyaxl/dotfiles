@@ -28,7 +28,7 @@ Template repository for advanced https://github.com/anishathalye/dotbot[Dotbot] 
 [#dependencies]
 === Dependencies
 - git
-- python-apt
+- python-apt(on ubuntu) and paru(arch)
 
 [#instalation]
 === Installation
@@ -52,56 +52,6 @@ Template repository for advanced https://github.com/anishathalye/dotbot[Dotbot] 
 --
 
 See link:./meta/profiles[meta/profiles/] for available profiles and link:./meta/configs[meta/configs/] for available configurations.
-
-[contents]
-=== Contents
-
-[#contents-profiles]
-==== Profiles
-
-meta/profiles
-
-- link:./meta/profiles/base.yaml[base.yaml]
-
-- link:./meta/profiles/ubuntu.yaml[ubuntu.yaml]
-
-- link:./meta/profiles/ubuntu_extra.yaml[ubuntu_extra.yaml]
-
-- link:./meta/profiles/ubuntu_dev.yaml[ubuntu_dev.yaml]
-
-[#contents-configs]
-==== Configs
-
-meta/configs
-
-    * link:./meta/configs/bash.yaml[basic.yaml]
-
-    * link:./meta/configs/tmux.yaml[tmux.yaml]
-
-    * link:./meta/configs/vim.yaml[vim.yaml]
-
-    * link:./meta/configs/zsh.yaml[zsh.yaml]
-
-    * link:./meta/configs/alacritty.yaml[alacritty.yaml]
-
-    * link:./meta/configs/keepassxc.yaml[keepassxc.yaml]
-
-    * link:./meta/configs/syncthing.yaml[syncthing.yaml]
-
-    * link:./meta/configs/androiddev.yaml[androiddev.yaml]
-
-    * link:./meta/configs/arduinodev.yaml[arduinodev.yaml]
-
-    * link:./meta/configs/rust.yaml[rust.yaml]
-
-    * link:./meta/configs/lutris.yaml[lutris.yaml]
-
-    * link:./meta/configs/steam.yaml[steam.yaml]
-
-    * link:./meta/configs/appimagelauncher.yaml[appimagelauncher.yaml]
-
-    * link:./meta/configs/signal-desktop.yaml[signal-desktop.yaml]
-
 
 [#license]
 === License
