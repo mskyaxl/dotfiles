@@ -32,8 +32,6 @@ require 'lsp-setup'
 -- (completion)
 require 'cmp-setup'
 
-require 'neo-tree-setup'
-
 require 'gitsigns-setup'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
