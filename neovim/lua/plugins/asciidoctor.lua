@@ -1,21 +1,28 @@
-return {
-  'habamax/vim-asciidoctor',
-  ft = { 'ASCII', 'text', 'asciidoc', 'adoc', 'asciidoctor' },
-  config = function()
-    -- asciidoc
-    -- Fold sections, default `0`.
-    vim.g.asciidoctor_folding = 1
+local M = {}
+M._start = 0
 
-    -- Fold options, default `0`.
-    vim.g.asciidoctor_fold_options = 1
-    -- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
-    -- See limitations in end of the README
-    vim.g.asciidoctor_syntax_conceal = 1
+function M.goLazy()
+  return {
+    'habamax/vim-asciidoctor',
+    ft = { 'ASCII', 'text', 'asciidoc', 'adoc', 'asciidoctor' },
+    config = function()
+      -- asciidoc
+      -- Fold sections, default `0`.
+      vim.g.asciidoctor_folding = 1
 
-    -- Highlight indented text, default `1`.
-    vim.g.asciidoctor_syntax_indented = 0
+      -- Fold options, default `0`.
+      vim.g.asciidoctor_fold_options = 1
+      -- Conceal *bold*, _italic_, `code` and urls in lists and paragraphs, default `0`.
+      -- See limitations in end of the README
+      vim.g.asciidoctor_syntax_conceal = 1
 
-    -- List of filetypes to highlight, default `[]`
-    vim.g.asciidoctor_fenced_languages = { 'python', 'c', 'javascript' }
-  end
-}
+      -- Highlight indented text, default `1`.
+      vim.g.asciidoctor_syntax_indented = 0
+
+      -- List of filetypes to highlight, default `[]`
+      vim.g.asciidoctor_fenced_languages = { 'python', 'c', 'javascript' }
+    end
+  }
+end
+
+return M

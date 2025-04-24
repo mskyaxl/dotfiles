@@ -1,1 +1,8 @@
-return  { 'numToStr/Comment.nvim', opts = {} }
+local M = {}
+M._start = 0
+
+function M.goLazy()
+  return { 'numToStr/Comment.nvim', opts = {} }
+end
+
+return M

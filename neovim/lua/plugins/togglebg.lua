@@ -1,3 +1,5 @@
+local M = {}
+M._start = 0
 -- initialize the colorscheme for the first run
 -- hacky way of detecting the current theme
 -- todo-find a DE independent way of getting this
@@ -32,15 +34,19 @@ local function configure()
   })
 end
 
-return {
-  'mikker/vim-togglebg',
-  priority = 1000,
-  dependencies = {
-    'ellisonleao/gruvbox.nvim',
-    --'gruvbox-community/gruvbox',
-    -- 'overcache/NeoSolarized',
-  },
-  config = function()
-    configure()
-  end
-}
+function M.goLazy()
+  return {
+    'mikker/vim-togglebg',
+    priority = 1000,
+    dependencies = {
+      'ellisonleao/gruvbox.nvim',
+      --'gruvbox-community/gruvbox',
+      -- 'overcache/NeoSolarized',
+    },
+    config = function()
+      configure()
+    end
+  }
+end
+
+return M

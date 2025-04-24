@@ -19,10 +19,10 @@ require('lazy').setup({
   'christoomey/vim-tmux-runner',
   'tmux-plugins/vim-tmux',
   -- Adds git related signs to the gutter, as well as utilities for managing changes
-  'lewis6991/gitsigns.nvim',
+  require('plugins/gitsigns').goLazy(),
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-  require 'plugins/lspconfig',
+  require('plugins/lspconfig').goLazy(),
   -- Configurations for Nvim LSP
   'p00f/clangd_extensions.nvim',
   -- TODO probably this is not needed and most likely covered already by mason
@@ -31,36 +31,38 @@ require('lazy').setup({
   --       vim.g['clang_format#detect_style_file'] = 1
   --     end,
   -- },
-  require 'plugins/cmp',
+  require('plugins/cmp').goLazy(),
   -- tree
-  require 'plugins/neo-tree',
+  require('plugins/neo-tree').goLazy(),
   -- Useful plugin to show you pending keybinds.
-  require('plugins/which-key'),
+  require('plugins/which-key').goLazy(),
   -- Git related plugins
-  require 'plugins/fugitive',
+  require('plugins/fugitive').goLazy(),
 
   -- [themes]
-  require 'plugins/togglebg',
-  require 'plugins/lualine',
-  require 'plugins/indent-blankline',
+  require('plugins/togglebg').goLazy(),
+  require('plugins/lualine').goLazy(),
+  require('plugins/indent-blankline').goLazy(),
   -- "gc" to comment visual regions/lines
-  require 'plugins/comment',
+  require('plugins/comment').goLazy(),
 
   -- find in files that uses the quick list window
-  require 'plugins/ctrlsf',
+  require('plugins/ctrlsf').goLazy(),
 
   -- Fuzzy Finder (files, lsp, etc)
-  require 'plugins/telescope',
+  require('plugins/telescope').goLazy(),
   -- Highlight, edit, and navigate code
 
-  require 'plugins/treesitter',
+  require('plugins/treesitter').goLazy(),
   -- markdown
-  require 'plugins/markdown',
+  require('plugins/markdown').goLazy(),
   -- asciidoc
-  require 'plugins/asciidoctor',
+  require('plugins/asciidoctor').goLazy(),
 
   -- session management
-  require 'plugins/prosession',
+  require('plugins/prosession').goLazy(),
+
+  require('plugins/copilot').goLazy(),
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.

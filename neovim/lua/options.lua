@@ -54,13 +54,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.opt.colorcolumn = {80, 120}
+vim.opt.colorcolumn = {80,120}
 vim.g.loaded_perl_provider = 0
 -- [[ Splits ]]
 vim.opt.splitright = true            -- bool: Place new window to right of current one
 
 -- vim: ts=2 sts=2 sw=2 et
-
-
-
-

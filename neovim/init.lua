@@ -16,27 +16,6 @@ require 'options'
 -- [[ Basic Keymaps ]]
 require 'keymaps'
 
--- [[ Configure Telescope ]]
--- (fuzzy finder)
-require 'telescope-setup'
-
--- [[ Configure Treesitter ]]
--- (syntax parser for highlighting)
-require 'treesitter-setup'
-
--- [[ Configure LSP ]]
--- (Language Server Protocol)
-require 'lsp-setup'
-
--- [[ Configure nvim-cmp ]]
--- (completion)
-require 'cmp-setup'
-
-require 'gitsigns-setup'
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
 -- TODO replace this with lua
 -- vim.cmd [[
 -- nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
@@ -52,4 +31,8 @@ require 'gitsigns-setup'
 --   echo "Long lines unhighlighted"
 --  endif
 -- endfunction]]
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+
 
