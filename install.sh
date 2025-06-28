@@ -29,7 +29,7 @@ function install() {
         ubuntu|pop)
            echo "You are using Ubuntu or Debian."
            # Add commands specific to Ubuntu/Debian here
-           PACKAGE_MANAGER_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot_aptget/aptget.py"
+           PACKAGE_MANAGER_PLUGIN="${BASE_DIR}/${META_DIR}/dotbot_plugins/dotbot-aptget/aptget.py"
            ;;
         arch)
             echo "You are using Arch Linux."
