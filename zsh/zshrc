@@ -91,6 +91,8 @@ plugins=(
   fzf
   zsh-history-substring-search
   zsh-fzf-history-search
+  virtualenv
+  direnv
 )
 
 if [ -d "$HOME/.config/dotfiles/completions"  ] ; then
@@ -123,6 +125,8 @@ fi
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+PROMPT='$(virtualenv_prompt_info) '$PROMPT
 
 export LIBGL_ALWAYS_INDIRECT=1
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
