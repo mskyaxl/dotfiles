@@ -13,7 +13,7 @@ local function setBackground()
   local gsettings = vim.fn.executable('gsettings') == 1
   if gsettings then
       local colorScheme = vim.fn.system({ 'gsettings', 'get', 'org.gnome.desktop.interface', 'color-scheme' }) 
-      if not string.match(colorScheme, '.*dark') then
+      if string.match(colorScheme, '.*light') then
        vim.o.background = 'light'
     end 
   end
