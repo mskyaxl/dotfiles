@@ -1,7 +1,7 @@
 local M = {}
 M._start = 0
 
-local function setup()
+local function config()
   -- [[ Configure Treesitter ]]
   -- See `:help nvim-treesitter`
   -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -81,7 +81,7 @@ function M.goLazy()
     },
     build = ':TSUpdate',
     config = function()
-      setup()
+      config()
     end
 
   }
